@@ -1,0 +1,185 @@
+/* =============================================================================
+   BOOKY AI — Card Components
+   cards.css
+   ============================================================================= */
+
+
+/* =============================================================================
+   Base Card
+   ============================================================================= */
+
+.card {
+  position: relative;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color var(--transition-base),
+    box-shadow   var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+
+/* =============================================================================
+   Card Sub-elements
+   ============================================================================= */
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.card-body {
+  padding: var(--space-lg);
+}
+
+.card-footer {
+  background-color: transparent;
+  border-top: 1px solid var(--border-default);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+
+/* =============================================================================
+   Card Variants
+   ============================================================================= */
+
+/* Raised — more prominent, higher elevation */
+.card--raised {
+  background-color: var(--bg-card-raised);
+  box-shadow: var(--shadow-md);
+}
+
+.card--raised:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Flat — no shadow, border only */
+.card--flat {
+  box-shadow: none;
+}
+
+.card--flat:hover {
+  box-shadow: none;
+}
+
+/* Glass — frosted/translucent panel */
+.card--glass {
+  background-color: var(--glass-bg);
+  border-color: var(--glass-border);
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.card--glass:hover {
+  background-color: var(--glass-bg-hover);
+  border-color: var(--border-strong);
+}
+
+/* Brand — highlighted with brand color accent */
+.card--brand {
+  border-color: rgba(var(--brand-rgb), 0.35);
+}
+
+.card--brand:hover {
+  border-color: rgba(var(--brand-rgb), 0.65);
+  box-shadow: 0 0 0 3px rgba(var(--brand-rgb), 0.08), var(--shadow-md);
+}
+
+
+/* =============================================================================
+   Interactive Card (clickable)
+   Wrap in <a> or add role="button" + tabindex="0"
+   ============================================================================= */
+
+.card--interactive {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card--interactive:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.card--interactive:active {
+  box-shadow: var(--shadow-xs);
+  transform: scale(0.995);
+}
+
+.card--interactive:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-color: var(--brand);
+}
+
+
+/* =============================================================================
+   Status Variants
+   ============================================================================= */
+
+.card--success {
+  border-color: var(--status-success);
+  background-color: var(--status-success-bg);
+}
+
+.card--warning {
+  border-color: var(--status-warning);
+  background-color: var(--status-warning-bg);
+}
+
+.card--error {
+  border-color: var(--status-error);
+  background-color: var(--status-error-bg);
+}
+
+.card--info {
+  border-color: var(--status-info);
+  background-color: var(--status-info-bg);
+}
+
+
+/* =============================================================================
+   Utility Modifiers
+   ============================================================================= */
+
+/* Remove all padding — useful when card contains a full-bleed image or table */
+.card--flush {
+  padding: 0;
+}
+
+.card--flush .card-header,
+.card--flush .card-body,
+.card--flush .card-footer {
+  padding: var(--space-md) var(--space-lg);
+}
+
+/* Compact — tighter padding for dense UIs like sidebars */
+.card--compact {
+  padding: var(--space-sm);
+}
+
+.card--compact .card-header,
+.card--compact .card-body,
+.card--compact .card-footer {
+  padding: var(--space-xs) var(--space-sm);
+}

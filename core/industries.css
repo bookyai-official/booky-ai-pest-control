@@ -1,0 +1,196 @@
+/* BOOKY AI — Industries Section */
+
+/* ── Section ───────────────────────────────────────────── */
+.ind-section {
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+}
+
+.cleaning{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Header ────────────────────────────────────────────── */
+
+.ind-subheading {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ── Bento Reference Layout ───────────────────────────────────────── */
+/* ── Bento Industry Layout ───────────────────────────────────────── */
+.bento-ref-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 1.25fr 1fr;
+    grid-template-rows: 220px 180px 180px 100px;
+    gap: 25px;
+    position: relative;
+    max-width: 1400px;
+    margin: 4rem auto 0;
+}
+
+/* Base Bento Card */
+.bento-ref-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    color: var(--text-primary);
+    box-shadow: inset 0 0 0 1px var(--border-default), var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.bento-ref-card:hover {
+    transform: translateY(-8px);
+    box-shadow: inset 0 0 0 1px rgba(var(--brand-rgb), 0.12), var(--shadow-lg);
+}
+
+.bento-ref-title {
+    font-size: 1.85rem;
+    font-weight: 850;
+    line-height: 1.1;
+    color: var(--text-primary);
+    letter-spacing: -0.025em;
+    z-index: 5;
+    position: relative;
+}
+
+/* Grid Placements for Perfect Symmetry */
+
+/* LEFT COLUMN (Mirrored to RIGHT) */
+.card-small-left { grid-column: 1; grid-row: 1 / 2; padding: 1.5rem; }
+.card-mid-left { grid-column: 1; grid-row: 2 / 3; }
+.card-tall-left { grid-column: 1; grid-row: 3 / 5; }
+
+/* MIDDLE COLUMNS (Untouched) */
+.card-huge-center { grid-column: 2 / 4; grid-row: 1 / 3; padding: 4rem; justify-content: center; z-index: 99; }
+.card-tall-bot-left { grid-column: 2; grid-row: 3 / 5; }
+.card-tall-bot-right { grid-column: 3; grid-row: 3 / 5; }
+
+/* RIGHT COLUMN (Original) */
+.card-small-right { grid-column: 4; grid-row: 1 / 2; padding: 1.5rem; }
+.card-mid-right { grid-column: 4; grid-row: 2 / 3; }
+.card-tall-right { grid-column: 4; grid-row: 3 / 5; }
+
+/* Centerpiece Typography */
+.card-huge-center .bento-ref-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 2rem;
+}
+
+/* Image Presentation */
+.ind-card-img {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    max-height: 80%;
+    max-width: 90%;
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 0.95;
+}
+
+.bento-ref-card:hover .ind-card-img {
+    transform: scale(1.1) rotate(-3deg);
+    opacity: 1;
+}
+
+/* Gradients */
+.bg-gradient-brand-purple { background: linear-gradient(135deg, #6338d9 0%, #4c1d95 100%); }
+.bg-gradient-brand-orange { background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); }
+.bg-gradient-brand-pink { background: linear-gradient(135deg, #be185d 0%, #9f1239 100%); }
+.bg-gradient-brand-teal { background: linear-gradient(135deg, #0f766e 0%, #115e59 100%); }
+.bg-gradient-brand-indigo { background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%); }
+.bg-gradient-brand-slate { background: linear-gradient(135deg, #334155 0%, #1e293b 100%); }
+.bg-gradient-brand-blue { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); }
+.bg-gradient-brand-green { background: linear-gradient(135deg, #059669 0%, #047857 100%); }
+
+.bg-ref-purple {
+    background: linear-gradient(135deg, #6338d9 0%, #4c1d95 100%);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15), var(--shadow-lg);
+}
+
+/* Binary Ring SVG Overlay */
+.ref-binary-ring {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* Responsive (Mobile Version) */
+@media (max-width: 1200px) {
+    .bento-ref-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+    
+    .card-huge-center { grid-column: 1 / 4; grid-row: 1; min-height: 350px; }
+    
+    /* Sides Mirroring on Tablet */
+    .card-small-left, .card-mid-left, .card-tall-left,
+    .card-small-right, .card-mid-right, .card-tall-right,
+    .card-tall-bot-left, .card-tall-bot-right {
+        grid-column: span 1;
+        grid-row: auto;
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .bento-ref-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .card-huge-center { grid-column: 1 / 3; }
+}
+
+@media (max-width: 768px) {
+    .bento-ref-grid {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+        padding: 0 15px;
+    }
+    .card-huge-center { 
+        grid-column: 1; 
+        padding: 3rem 1.5rem;
+        min-height: 300px;
+    }
+    .bento-ref-card {
+        min-height: 220px;
+        padding: var(--space-lg) var(--space-md);
+        border-radius: var(--radius-xl);
+    }
+    .card-huge-center .bento-ref-title {
+        font-size: 2.25rem;
+    }
+    .bento-ref-title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-huge-center .bento-ref-title {
+        font-size: 1.85rem;
+    }
+    .bento-ref-title {
+        font-size: 1.4rem;
+    }
+}

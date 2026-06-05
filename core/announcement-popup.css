@@ -1,0 +1,123 @@
+/* BOOKY AI — Announcement Popup Styles */
+.announcement-popup {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 400px;
+    max-width: calc(100vw - 2rem);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: 1050;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+/* 
+.announcement-popup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary);
+} */
+
+.announcement-content {
+    padding: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    padding-right: 2rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.announcement-icon {
+    color: var(--brand);
+    font-size: 1.1rem;
+}
+
+.announcement-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.announcement-body p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.announcement-body p:last-child {
+    margin-bottom: 0;
+}
+
+.announcement-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.announcement-close:hover {
+    opacity: 1;
+    color: var(--text-primary);
+}
+
+.btn-close-custom {
+    color: inherit;
+    font-size: inherit;
+}
+
+.announcement-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-default);
+}
+
+.dont-show-again {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border-default);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.dont-show-again:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+}
+
+@media (max-width: 576px) {
+    .announcement-popup {
+        top: 1rem;
+        right: 1rem;
+        left: 1rem;
+        width: auto;
+    }
+}

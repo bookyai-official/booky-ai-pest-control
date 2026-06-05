@@ -1,0 +1,375 @@
+﻿/* ============================================================
+   BOOKY AI — Problem Section (Editorial Redesign)
+   ============================================================ */
+
+.prob-section {
+  background: var(--bg-page);
+  padding: 88px 0 96px;
+  position: relative;
+}
+
+.prob-wrap {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Tag ─────────────────────────────────────────────────── */
+.prob-top-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--brand);
+  border: 1px solid rgba(var(--brand-rgb), 0.2);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 52px;
+}
+
+/* ── Editorial Header ────────────────────────────────────── */
+.prob-editorial-header {
+  padding-top: 40px;
+  margin-bottom: 72px;
+}
+
+.prob-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 3rem;
+  margin: 0 auto;
+}
+
+.prob-big-headline {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: var(--text-primary);
+}
+
+.prob-big-headline em {
+  font-style: normal;
+  color: var(--brand);
+}
+
+.prob-header-sub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 380px;
+  align-self: end;
+  padding-bottom: 6px;
+}
+
+/* ── Problem Rows ────────────────────────────────────────── */
+.prob-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.prob-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  border-top: 1px solid var(--border-default);
+  padding: 40px 0;
+  align-items: start;
+  transition: background 0.25s;
+}
+
+.prob-row:last-child {
+  border-bottom: 1px solid var(--border-default);
+}
+
+.prob-row:hover {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.prob-row-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.18);
+  padding-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.prob-row-left {
+  padding-right: 48px;
+}
+
+.prob-row-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+  margin-bottom: 10px;
+}
+
+.prob-row-title span {
+  color: var(--brand);
+}
+
+.prob-row-body {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
+.prob-row-right {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.prob-stat-block {
+  text-align: right;
+}
+
+.prob-stat-big {
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--brand);
+  line-height: 1;
+  display: block;
+}
+
+.prob-stat-label {
+  font-size: 0.75rem;
+  color: #444;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+  line-height: 1.5;
+  max-width: 160px;
+  margin-left: auto;
+}
+
+/* ── Cost Block ──────────────────────────────────────────── */
+.prob-cost-block {
+  margin-top: 64px;
+  padding-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.prob-cost-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.prob-cost-headline {
+  font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+
+.prob-cost-body {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.prob-cost-compare {
+  border: 1px solid var(--border-default);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.prob-cost-compare-row {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+}
+
+.prob-cost-item {
+  padding: 24px 22px;
+}
+
+.prob-cost-item--bad {
+  background: rgba(255, 255, 255, 0.02);
+  border-right: 1px solid var(--border-default);
+}
+
+.prob-cost-item--good {
+  background: rgba(var(--brand-rgb), 0.05);
+}
+
+.prob-cost-item-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.prob-cost-price {
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.prob-cost-item--bad .prob-cost-price {
+  color: rgba(255, 255, 255, 0.15);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 255, 255, 0.1);
+}
+
+.prob-cost-item--good .prob-cost-price {
+  color: var(--brand);
+}
+
+.prob-cost-per {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  opacity: 0.5;
+}
+
+.prob-cost-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.prob-cost-line {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prob-cost-line::before {
+  content: '';
+  width: 5px;
+  height: 1px;
+  background: #333;
+  flex-shrink: 0;
+}
+
+.prob-cost-item--good .prob-cost-line::before {
+  background: var(--brand);
+  height: 2px;
+}
+
+.prob-cost-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── CTA Strip ───────────────────────────────────────────── */
+.prob-cta-strip {
+  margin-top: 56px;
+  border-top: 1px solid var(--border-default);
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.prob-cta-text {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.prob-cta-text span {
+  color: var(--brand);
+}
+
+.prob-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--brand);
+  color: #000;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.prob-cta-btn:hover {
+  background: var(--brand-light);
+  transform: translateY(-2px);
+  color: #000;
+  text-decoration: none;
+}
+
+.prob-btn-arr {
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.prob-cta-btn:hover .prob-btn-arr {
+  transform: translateX(4px);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .prob-cost-block {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 760px) {
+  .prob-section { padding: 64px 0 72px; }
+  .prob-header-inner { grid-template-columns: 1fr; }
+
+  .prob-row {
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+    padding: 32px 0;
+  }
+
+  .prob-row-left { padding-right: 0; margin-bottom: 20px; }
+
+  .prob-row-right {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+
+  .prob-stat-block { text-align: left; }
+  .prob-stat-label { text-align: left; margin-left: 0; }
+
+  .prob-cta-strip { flex-direction: column; align-items: flex-start; }
+  .prob-cta-btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .prob-wrap { padding: 0 20px; }
+  .prob-row-title { font-size: 1.2rem; }
+  .prob-stat-big { font-size: 2.4rem; }
+  .prob-cost-compare-row { grid-template-columns: 1fr; }
+  .prob-cost-vs { display: none; }
+  .prob-cost-item--bad { border-right: none; border-bottom: 1px solid var(--border-default); }
+}

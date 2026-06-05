@@ -1,0 +1,1305 @@
+<!--
+  CHANGES MADE FOR PEST CONTROL NICHE:
+  - Hero Section: Updated headline, subtitle, and chat simulation to focus on pest control (e.g., mice) and removing em dashes.
+  - Problem Section: Reframed missed calls around being under a crawlspace or spraying a yard. Replaced all em dashes and shortened sentences.
+  - Solutions Section: Updated examples to mention termites, bed bugs, and route scheduling.
+  - How It Works Section: Altered text messages to wasp nest and 3-bed home inspections.
+  - Features Section: Adjusted descriptions to mention inspections, no locked gates, and filtering out free advice seekers. Added pest control icon suggestions in HTML comments.
+  - Testimonials: Rewrote all reviews to be from pest control owners (e.g., mosquito season) and updated company names.
+  - FAQ Section: Added a new FAQ section tailored to pest control owners.
+  - CTA Section: Removed em dashes and made sentences direct.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Receptionist for Pest Control | Booky AI</title>
+    <meta name="description"
+        content="Booky AI answers your calls, books your pest control jobs, and follows up 24/7. The AI receptionist built for exterminators. Start free. No credit card needed.">
+    
+
+
+
+
+    <meta property="og:site_name" content="Booky AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.booky-ai.com{{ request.path }}">
+    <meta property="og:title"
+        content="Booky AI - AI Receptionist for Pest Control">
+    <meta property="og:description"
+        content="Booky AI answers your calls, books your pest control jobs, and follows up 24/7. Start free. No credit card needed.">
+    <meta property="og:image"
+        content="https://www.booky-ai.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="Booky AI - AI Receptionist for Pest Control">
+    <meta name="twitter:description"
+        content="Booky AI answers your calls, books your pest control jobs, and follows up 24/7.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/icon.svg" type="image/svg+xml">
+
+    <!-- DNS Prefetch & Preconnect for all external CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Fonts: narrowed to only used weights (400,500,600,700) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome: loaded after paint (non-render-blocking) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </noscript>
+
+    <!-- Utility & Component CSS -->
+    <link rel="stylesheet" href="util_css/colors.css">
+    <link rel="stylesheet" href="util_css/btn.css">
+    <link rel="stylesheet" href="util_css/cards.css">
+    <link rel="stylesheet" href="util_css/tables.css">
+    <link rel="stylesheet" href="util_css/forms.css">
+    <link rel="stylesheet" href="core/how_it_works.css">
+    <link rel="stylesheet" href="core/industries.css">
+    <link rel="stylesheet" href="core/testimonials_pricing.css">
+    <link rel="stylesheet" href="core/cta_faq.css">
+    <link rel="stylesheet" href="core/features.css">
+    <link rel="stylesheet" href="core/index.css">
+    <link rel="stylesheet" href="core/problem.css">
+    <link rel="stylesheet" href="core/features_grid.css">
+    <link rel="stylesheet" href="core/conversation_sim.css">
+    <link rel="stylesheet" href="core/cta.css">
+
+    <!-- AOS Animation Library (loaded once here, not in child templates) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- Main Base CSS (Overrides) -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Initialize Theme -->
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('theme');
+                var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var initialTheme = storedTheme || (systemDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-bs-theme', initialTheme);
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <script>
+        (function () {
+            if (document.documentElement.getAttribute('data-bs-theme') === 'dark') {
+                document.body.classList.add('theme-dark');
+            }
+        })();
+    </script>
+    <!-- Navigation — Variant 3: Frosted Glass Card -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-modern" id="mainNav">
+        <div class="nav-card">
+
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+              
+                <img src="images/dark-logo.png" alt="Booky AI"
+                    style="height: 36px; object-fit: contain;" fetchpriority="high">
+              
+            </a>
+
+            <!-- Mobile toggler -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="nav-hamburger">
+                    <span></span><span></span><span></span>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <!-- Centre links -->
+                <ul class="navbar-nav mx-auto gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="#features">Features</a>
+                    </li>
+         
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="#pricing">Pricing</a>
+                    </li>
+    
+                </ul>
+
+                <!-- Right actions -->
+                <div class="d-flex align-items-center gap-2 nav-actions">
+                    <!-- Theme Toggle -->
+                    <button class="btn theme-toggle-btn me-1" id="themeToggle" aria-label="Toggle Theme"
+                        title="Toggle Light/Dark Mode">
+                        <i class="fas fa-sun light-icon d-none"></i>
+                        <i class="fas fa-moon dark-icon"></i>
+                    </button>
+                    <!-- Login Trigger -->
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                        data-bs-target="#loginChoiceModal">
+                        Login
+                    </button>
+
+                    <!-- Get Started Trigger -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#signupChoiceModal">
+                        Get Started
+                    </button>
+               
+                </div>
+            </div>
+
+        </div><!-- /.nav-card -->
+    </nav>
+
+    <!-- Login Choice Modal -->
+    <div class="modal fade" id="loginChoiceModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content choice-modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0 text-center">
+                    <h3 class="modal-title mb-4">Welcome Back</h3>
+                    <p class="text-secondary mb-5">Please select your account type to login</p>
+
+                    <div class="d-grid gap-3">
+                        <a href="/accounts/login/" class="choice-card">
+                            <div class="choice-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="choice-text">
+                                <h5>Business Account</h5>
+                                <span>Manage your team and appointments</span>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+
+                        <a href="{% url 'customer:login' %}" class="choice-card">
+                            <div class="choice-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="choice-text">
+                                <h5>Customer Account</h5>
+                                <span>Book and track your appointments</span>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Choice Modal -->
+    <div class="modal fade" id="signupChoiceModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content choice-modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0 text-center">
+                    <h3 class="modal-title mb-4">Get Started</h3>
+                    <p class="text-secondary mb-5">How would you like to use BookyAI?</p>
+
+                    <div class="d-grid gap-3">
+                        <a href="/accounts/signup/" class="choice-card primary">
+                            <div class="choice-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="choice-text">
+                                <h5>Join as a Business</h5>
+                                <span>Automate your scheduling today</span>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+
+                        <a href="{% url 'customer:register' %}" class="choice-card">
+                            <div class="choice-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <div class="choice-text">
+                                <h5>Join as a Customer</h5>
+                                <span>Book services with ease</span>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+         <section class="hero-section py-10">
+    <!-- Animated Background Grid -->
+    <div class="hero-grid-bg"></div>
+    
+    <!-- Floating AI Particles -->
+    <div class="ai-particles">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+    </div>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9 mt-5">
+                <div class="hero-content text-center position-relative">
+   
+                    
+                    <!-- Main Heading -->
+                    <h1 class="mb-4">
+                        The AI Receptionist Built for 
+                        <span class="gradient-text d-block mt-0">
+                            <span id="typed-industry">Pest Control</span><span class="typed-cursor"></span>
+                        </span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="hero-subtitle mb-5">
+                        Pest control owners use Booky AI to capture every lead. Stop losing jobs to competitors while you are under a house or spraying a yard.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
+                        <a href="/accounts/signup/" class="btn btn-primary px-4 px-md-5 py-3">
+                            <span>Stop Missing Jobs</span>
+                        </a>
+                        <a href="#how-it-works" class="btn btn-secondary px-4 px-md-5 py-3">
+                            <span>See How It Works</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Conversation Simulation Component -->
+                    <div class="hero-dashboard-mockup mt-5 position-relative">
+                        <!-- Glow effect -->
+                        <div class="position-absolute top-50 start-50 translate-middle w-100 h-100 bg-primary rounded-circle" style="opacity: 0.15; filter: blur(100px); z-index: -1;"></div>
+                        
+                        <div class="conversation-container">
+    <div class="mock-browser-bar">
+        <div class="circles">
+            <span class="circle red"></span>
+            <span class="circle yellow"></span>
+            <span class="circle green"></span>
+        </div>
+        <div class="url-bar">booky-ai.com/ai-agent</div>
+    </div>
+    
+    <div class="chat-window" id="heroChatWindow">
+        <div class="chat-messages" style="background-color: var(--bg-card);" id="heroChatMessages">
+            <!-- Messages will be injected by JS -->
+            <!-- Initial placeholder to avoid empty look -->
+            <div class="chat-message user-message visible">
+                <div class="message-content">Hi. I need someone to check my attic for mice.</div>
+            </div>
+            <div class="chat-message ai-message visible">
+                <div class="message-content">Hello! I can help with that. When would you like us to come take a look?</div>
+            </div>
+        </div>
+        
+        <div class="typing-indicator" id="heroTypingIndicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="chat-input-area">
+            <div class="mock-input">Message BookyAI...</div>
+            <div class="send-icon">
+                <i class="fas fa-paper-plane"></i>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+                        
+                    </div>
+                    
+             
+                </div>
+            </div>
+        </div>
+    </div>
+         </section>
+
+         <!-- Problem -->
+          <!-- Problem Statement Section -->
+<section class="prob-section" id="problem">
+  <div class="prob-wrap">
+    <div class="prob-editorial-header">
+      <div class="prob-header-inner">
+        <h2 class="prob-big-headline">
+          Your phone rings.<br>
+          You are spraying a yard.<br>
+          <em>They hire someone else.</em>
+        </h2>
+        <p class="prob-header-sub">
+          Pest control businesses do not lose jobs because of bad work. They lose them in the 60 seconds after a missed call before they even know a lead existed.
+        </p>
+      </div>
+    </div>
+
+    <div class="prob-rows">
+
+      <div class="prob-row">
+        <div class="prob-row-num">01</div>
+        <div class="prob-row-left">
+          <h3 class="prob-row-title">Missed calls are <span>missed jobs</span></h3>
+          <p class="prob-row-body">You are under a crawlspace or mixing chemicals. Your phone rings. You let it go to voicemail. That caller does not leave a message. They call the next pest control company. They answer. They get the job.</p>
+        </div>
+        <div class="prob-row-right">
+          <div class="prob-stat-block">
+            <span class="prob-stat-big">78%</span>
+            <p class="prob-stat-label">of customers hire whoever answers first — not whoever is best</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prob-row">
+        <div class="prob-row-num">02</div>
+        <div class="prob-row-left">
+          <h3 class="prob-row-title">Slow replies <span>kill the deal</span></h3>
+          <p class="prob-row-body">A customer finds ants in their kitchen. They want help right now. Every minute you wait to reply is a minute your competitor is booking that job.</p>
+        </div>
+        <div class="prob-row-right">
+          <div class="prob-stat-block">
+            <span class="prob-stat-big">5 min</span>
+            <p class="prob-stat-label">before a new lead goes cold and books with someone else</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prob-row">
+        <div class="prob-row-num">03</div>
+        <div class="prob-row-left">
+          <h3 class="prob-row-title">No-shows <span>waste your day</span></h3>
+          <p class="prob-row-body">You drive across town for an inspection. Nobody is home. You sent no reminder. You collected no confirmation. That is time, fuel, and a full job slot gone.</p>
+        </div>
+        <div class="prob-row-right">
+          <div class="prob-stat-block">
+            <span class="prob-stat-big">30%</span>
+            <p class="prob-stat-label">of small business revenue lost to no-shows and scheduling gaps</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="prob-cost-block">
+      <div class="prob-cost-left">
+        <div class="prob-cost-eyebrow">The alternative you have considered</div>
+        <h3 class="prob-cost-headline">Hiring a receptionist costs $25,000 a year and they still cannot work Sunday nights.</h3>
+        <p class="prob-cost-body">A human receptionist clocks out at 5 PM. They take sick days. Bugs do not care what time it is. Your customers call at all hours. Your response system needs to match that.</p>
+      </div>
+      <div class="prob-cost-right">
+        <div class="prob-cost-compare">
+          <div class="prob-cost-compare-row">
+            <div class="prob-cost-item prob-cost-item--bad">
+              <div class="prob-cost-item-label">Receptionist</div>
+              <div class="prob-cost-price">$25k<span class="prob-cost-per">/yr</span></div>
+              <div class="prob-cost-lines">
+                <div class="prob-cost-line">9–5 only</div>
+                <div class="prob-cost-line">Sick days &amp; holidays</div>
+                <div class="prob-cost-line">Limited call volume</div>
+              </div>
+            </div>
+            <div class="prob-cost-vs">vs</div>
+            <div class="prob-cost-item prob-cost-item--good">
+              <div class="prob-cost-item-label">Booky AI</div>
+              <div class="prob-cost-price">$29<span class="prob-cost-per">/mo</span></div>
+              <div class="prob-cost-lines">
+                <div class="prob-cost-line">24/7 every day</div>
+                <div class="prob-cost-line">Instant reply, always</div>
+                <div class="prob-cost-line">Unlimited leads</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prob-cta-strip">
+      <p class="prob-cta-text">Booky handles all of this <span>automatically and around the clock.</span></p>
+      <a href="#how-it-works" class="prob-cta-btn">See How It Works <span class="prob-btn-arr">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOKY AI — Solution (Expanding Timer Cards) Section
+     Highly interactive, auto-cycling component inspired by modern UI patterns.
+     ============================================================ -->
+
+
+
+<section class="sol-exp-section" id="solutions">
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10 text-center">
+                <div class="section-badge mb-3">
+                Our Solution
+                </div>
+                <h2 class="mb-4 fw-bold" style="font-size: clamp(2rem, 5vw, 2.8rem);">
+                    Stop Chasing Leads. <br><span class="gradient-text">Start Closing Jobs.</span>
+                </h2>
+                <p class="mx-auto" style="font-size: 1.15rem; max-width: 800px; color: var(--text-secondary) !important;">
+                    Booky AI handles the heavy lifting of running a pest control business. We automate your calls and scheduling so you can focus on the work.
+                </p>
+            </div>
+        </div>
+
+        <div class="sol-exp-container">
+            
+            <!-- Card 1: Infinite Availability -->
+            <div class="sol-exp-card active" data-index="0">
+                <div class="sol-exp-timer"></div>
+                <div class="sol-exp-inner">
+                    <div class="sol-exp-head">
+                        <span class="sol-exp-num" aria-hidden="true">01</span>
+                        <h3 class="sol-exp-title">Infinite Availability</h3>
+                    </div>
+                    <div class="sol-exp-body">
+                        <p class="sol-exp-desc">Never lose a job because you were busy on a site. Our AI handles questions and books inspections day or night.</p>
+                        <div class="sol-exp-media">
+                            <div class="hiw-mock-shell" style="width:100%; max-width:280px; height:320px;">
+                                <div class="hiw-mock-header">
+                                    <span>9:41</span>
+                                    <div class="d-flex gap-1 align-items-center">
+                                        <i class="fas fa-signal"></i>
+                                        <i class="fas fa-wifi"></i>
+                                    </div>
+                                </div>
+                                <div class="hiw-mock-body">
+                                    <div class="incoming-card" style="margin-top:20px;">
+                                        <div class="pulse-ring"></div>
+                                        <div>
+                                            <div style="font-size:0.75rem; font-weight:700; color:var(--text-primary);">Incoming Call</div>
+                                            <div style="font-size:0.65rem; color:var(--text-muted);">Potential Lead</div>
+                                        </div>
+                                    </div>
+                                    <div class="channel-pill" style="margin-top:10px;">
+                                        <i class="fas fa-sms text-primary"></i>
+                                        <span>"Need a termite quote..."</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sol-exp-tags">
+                            <span class="sol-exp-tag">Voice AI</span>
+                            <span class="sol-exp-tag">24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Absolute Clarity -->
+            <div class="sol-exp-card" data-index="1">
+                <div class="sol-exp-timer"></div>
+                <div class="sol-exp-inner">
+                    <div class="sol-exp-head">
+                        <span class="sol-exp-num" aria-hidden="true">02</span>
+                        <h3 class="sol-exp-title">Absolute Clarity</h3>
+                    </div>
+                    <div class="sol-exp-body">
+                        <p class="sol-exp-desc">Stop juggling calendars. Booky syncs with Google or Outlook. Your team gets a single schedule for every route.</p>
+                        <div class="sol-exp-media">
+                            <div class="hiw-mock-shell" style="width:100%; max-width:280px; height:320px;">
+                                <div class="hiw-mock-header">
+                                    <span>BookyAI</span>
+                                    <div class="d-flex gap-1 align-items-center">
+                                        <span class="bg-success rounded-circle" style="width:5px; height:5px;"></span>
+                                        <span style="font-size:0.55rem;">Active</span>
+                                    </div>
+                                </div>
+                                <div class="hiw-mock-body">
+                                    <div class="hiw-chat-thread">
+                                        <div class="hiw-bubble user">"Found bed bugs."</div>
+                                        <div class="hiw-bubble ai">"Oh no! We can treat that today at 2 PM. Book it?"</div>
+                                        <div class="hiw-bubble user">"Yes please."</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sol-exp-tags">
+                            <span class="sol-exp-tag">Google Sync</span>
+                            <span class="sol-exp-tag">Smart Scheduling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Financial Velocity -->
+            <div class="sol-exp-card" data-index="2">
+                <div class="sol-exp-timer"></div>
+                <div class="sol-exp-inner">
+                    <div class="sol-exp-head">
+                        <span class="sol-exp-num" aria-hidden="true">03</span>
+                        <h3 class="sol-exp-title">Financial Velocity</h3>
+                    </div>
+                    <div class="sol-exp-body">
+                        <p class="sol-exp-desc">Secure payments link right into the booking flow. Booky handles invoice links so you get paid before the truck rolls out.</p>
+                        <div class="sol-exp-media">
+                            <div class="hiw-mock-shell" style="width:100%; max-width:280px; height:320px;">
+                                <div class="hiw-mock-header">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                    <span style="font-size:0.6rem;">Payment Successful</span>
+                                </div>
+                                <div class="hiw-mock-body">
+                                    <div class="text-center" style="padding:20px 0;">
+                                        <div style="font-size:2.2rem; font-weight:800; color:var(--text-primary);">$450.00</div>
+                                        <div style="font-size:0.75rem; color:var(--brand); font-weight:700;">Deposit Confirmed</div>
+                                    </div>
+                                    <div class="success-item" style="margin-top:10px;">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                        <span>Invoice #882 Sent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sol-exp-tags">
+                            <span class="sol-exp-tag">Stripe Sync</span>
+                            <span class="sol-exp-tag">Instant Pay</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</section>
+
+
+
+
+<!-- ============================================================
+     BOOKY AI — How It Works (Abstract Graphics) Section
+     Redesigned with minimalist 3-column layout and CSS capsule art.
+     ============================================================ -->
+
+
+
+
+<section class="hiw-abstract-section my-5" id="how-it-works">
+    <div class="container mb-5">
+        <div class="text-center">
+            <div class="section-badge mb-3">
+                How It Works
+            </div>
+            <h2 class="section-title mb-3">
+                Simple Setup, <span class="gradient-text">Infinite Success</span>
+            </h2>
+            <p class="section-subtitle">
+                From the first call to the final spray, Booky AI manages your entire booking cycle.
+            </p>
+        </div>
+    </div>
+    <div class="container px-0">
+        <div class="hiw-grid">
+            
+            <!-- Column 001: Client Reachout -->
+            <div class="hiw-col">
+                <div class="hiw-indicator">001</div>
+                <div class="hiw-graphic-wrap">
+                    <div class="hiw-mock-shell">
+                        <div class="hiw-mock-header">
+                            <span>9:41</span>
+                            <div class="d-flex gap-1 align-items-center">
+                                <i class="fas fa-signal"></i>
+                                <i class="fas fa-wifi"></i>
+                                <i class="fas fa-battery-full"></i>
+                            </div>
+                        </div>
+                        <div class="hiw-mock-body">
+                            <div class="incoming-card">
+                                <div class="pulse-ring"></div>
+                                <div>
+                                    <div style="font-size:0.7rem; font-weight:600;">Incoming Call</div>
+                                    <div style="font-size:0.6rem; opacity:0.7;">Unknown Number</div>
+                                </div>
+                            </div>
+                            <div class="channel-pill">
+                                <i class="fas fa-sms text-primary"></i>
+                                <span>SMS: "Found a wasp nest..."</span>
+                            </div>
+                            <div class="channel-pill" style="opacity:0.8;">
+                                <i class="fas fa-comments text-info"></i>
+                                <span>Web Chat active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hiw-text-content">
+                    <h3 class="hiw-title">Client Reaches Out</h3>
+                    <p class="hiw-desc">Your customer calls or texts your business number. They instantly connect with our AI assistant.</p>
+                </div>
+            </div>
+
+            <!-- Column 002: AI Engagement -->
+            <div class="hiw-col">
+                <div class="hiw-indicator">002</div>
+                <div class="hiw-graphic-wrap">
+                    <div class="hiw-mock-shell">
+                        <div class="hiw-mock-header">
+                            <span>BookyAI</span>
+                            <div class="d-flex gap-1 align-items-center">
+                                <span class="bg-success rounded-circle" style="width:5px; height:5px;"></span>
+                                <span style="font-size:0.55rem;">Active</span>
+                            </div>
+                        </div>
+                        <div class="hiw-mock-body">
+                            <div class="hiw-chat-thread">
+                                <div class="hiw-bubble user">"I need an inspection for a 3-bed home next Friday."</div>
+                                <div class="hiw-bubble ai">"Sure thing! I have 2 PM available. Does that work?"</div>
+                                <div class="hiw-bubble user">"Yes that is perfect."</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hiw-text-content">
+                    <h3 class="hiw-title">AI Engagement</h3>
+                    <p class="hiw-desc">Booky asks about the pest problem, collects job details, and handles the scheduling for you.</p>
+                </div>
+            </div>
+
+            <!-- Column 003: Success -->
+            <div class="hiw-col">
+                <div class="hiw-indicator">003</div>
+                <div class="hiw-graphic-wrap">
+                    <div class="hiw-mock-shell">
+                        <div class="hiw-mock-header">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <span style="font-size:0.6rem;">Success</span>
+                        </div>
+                        <div class="hiw-mock-body">
+                            <div class="success-circle">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="text-center mb-4">
+                                <div style="font-size:0.85rem; font-weight:700; color:var(--text-primary);">Booking Confirmed</div>
+                                <div style="font-size:0.7rem; color:var(--text-muted);">Fri, Mar 27 @ 2:00 PM</div>
+                            </div>
+                            <div class="success-item">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Google Calendar Synced</span>
+                            </div>
+                            <div class="success-item">
+                                <i class="fas fa-bell"></i>
+                                <span>SMS Reminder Sent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hiw-text-content">
+                    <h3 class="hiw-title">Automated Success</h3>
+                    <p class="hiw-desc">Appointments are confirmed and synced to your calendar. Reminders go out automatically so you avoid wasted trips.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Features Section — Bento Grid -->
+<section class="ftgrid-section py-5" id="all-features">
+    <div class="container">
+
+        <!-- Section Header -->
+        <div class="text-center mb-5">
+            <h2 class="ftgrid-heading">
+                Everything You Need to <span class="gradient-text">Book More Jobs</span>
+            </h2>
+            <p class="ftgrid-sub">
+                One platform. Every tool a pest control business needs to capture leads, fill the route, and get paid.
+            </p>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="ftgrid-bento">
+
+            <!-- Row 1: 2 wide + 1 standard -->
+            <div class="ftgrid-card ftgrid-card--wide">
+                <!-- Suggestion: use <i class="fas fa-shield-cat"></i> or similar pest control icon if needed -->
+                <h4 class="ftgrid-title">24/7 AI Lead Response</h4>
+                <p class="ftgrid-desc">Booky answers every call, text, and chat instantly. We work nights and weekends. No lead goes unanswered.</p>
+            </div>
+
+            <div class="ftgrid-card">
+                <!-- Suggestion: use <i class="fas fa-bug"></i> icon if needed -->
+                <h4 class="ftgrid-title">AI Phone Calls</h4>
+                <p class="ftgrid-desc">Booky calls your leads back. It has a real conversation and books the inspection like a human office manager.</p>
+            </div>
+
+            <!-- Row 2: 1 standard + 2 wide -->
+            <div class="ftgrid-card">
+                <h4 class="ftgrid-title">SMS Conversations</h4>
+                <p class="ftgrid-desc">A customer texts your number. Booky replies instantly, asks what pest they see, and books the job.</p>
+            </div>
+
+            <div class="ftgrid-card ftgrid-card--wide">
+                <h4 class="ftgrid-title">Chat Widget & Booking Form</h4>
+                <p class="ftgrid-desc">Add live chat and a booking form to your website. Visitors ask questions, pick a time, and book all without a phone call.</p>
+            </div>
+
+            <!-- Row 3: 3 equal -->
+            <div class="ftgrid-card">
+                <h4 class="ftgrid-title">Lead Qualification</h4>
+                <p class="ftgrid-desc">Asks the right questions. Filters out people just looking for free advice. Only books serious jobs.</p>
+            </div>
+
+            <div class="ftgrid-card">
+                <h4 class="ftgrid-title">Google Calendar Sync</h4>
+                <p class="ftgrid-desc">Two-way sync. Every booking shows up automatically. No double-bookings and no manual entry.</p>
+            </div>
+
+            <div class="ftgrid-card">
+                <h4 class="ftgrid-title">Automated Reminders</h4>
+                <p class="ftgrid-desc">Customers get automatic SMS reminders before their appointment. Fewer no-shows and fewer locked gates.</p>
+            </div>
+
+            <!-- Row 4: 2 wide + 1 standard -->
+            <div class="ftgrid-card ftgrid-card--wide">
+                <h4 class="ftgrid-title">Stripe & Square Payment Links</h4>
+                <p class="ftgrid-desc">Send payment links automatically when a job is booked. Get paid or take a deposit before you arrive.</p>
+            </div>
+
+            <div class="ftgrid-card">
+                <h4 class="ftgrid-title">Lead Dashboard</h4>
+                <p class="ftgrid-desc">Every lead, conversation, and booking in one place. Know exactly where your business stands.</p>
+            </div>
+
+            <!-- Row 5: 1 standard + 1 wide -->
+            <div class="ftgrid-card">
+                <h4 class="ftgrid-title">API Integrations</h4>
+                <p class="ftgrid-desc">Push leads in from any platform. Connect Booky to your existing tools via our simple API.</p>
+            </div>
+
+            <div class="ftgrid-card ftgrid-card--wide">
+                <h4 class="ftgrid-title">Multi-Channel Inbox</h4>
+                <p class="ftgrid-desc">Phone, SMS, and chat conversations all in one place. Reply to any customer from a single dashboard.</p>
+            </div>
+
+        </div>
+        <!-- END Bento Grid -->
+
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+       
+            <h2 class="section-title mb-3">
+                What Our <span class="gradient-text">Customers Say</span>
+            </h2>
+            <p class="section-subtitle">
+                Pest control businesses that stopped missing leads
+            </p>
+        </div>
+        
+        <!-- Vertical Marquee Container -->
+        <div class="testimonials-marquee-container">
+            <!-- Column 1 -->
+            <div class="testimonial-column" data-direction="up">
+                <div class="testimonial-track">
+                    <!-- Original testimonials -->
+                    <div class="testimonial-card-modern">
+                       
+                        <p class="testimonial-text">This AI assistant changed our business. Our office staff used to drown in calls during mosquito season. Now the AI handles booking and our schedule is packed.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Sarah Johnson</h6>
+                                <p class="author-role">Bug Free Home Services</p>
+                            </div>
+                             <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">Customers cannot tell they are talking to an AI. It is like having a full-time dispatcher without the extra payroll.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Chen" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">David Chen</h6>
+                                <p class="author-role">Pro Pest Control</p>
+                            </div>
+                             <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">Best tool we use. The AI handles everything from booking initial inspections to sending reminders.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Wilson" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Emma Wilson</h6>
+                                <p class="author-role">Safe Shield Pest Management</p>
+                            </div>
+                             <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">This AI assistant changed our business. Our office staff used to drown in calls during mosquito season. Now the AI handles booking and our schedule is packed.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Sarah Johnson</h6>
+                                <p class="author-role">Bug Free Home Services</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">Customers cannot tell they are talking to an AI. It is like having a full-time dispatcher without the extra payroll.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Chen" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">David Chen</h6>
+                                <p class="author-role">Pro Pest Control</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        </div>
+                        
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 2 (Hidden on mobile) -->
+            <div class="testimonial-column d-none d-md-block" data-direction="down">
+                <div class="testimonial-track">
+                    <!-- Original testimonials -->
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">I am out on the field all day. This system handles all my scheduling. I can focus on treatments instead of returning calls.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Rodriguez" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Michael Rodriguez</h6>
+                                <p class="author-role">Elite Exterminators</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star text-warning"></i>5.0</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">The voice calling feature is amazing. Our customers get immediate help when they see a bug. We have grown our route by 40%.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Lisa Anderson" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Lisa Anderson</h6>
+                                <p class="author-role">Local Pest Experts</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>4.8</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">Great return on investment. We made the cost back in week one by booking jobs we normally would have missed.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="James Taylor" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">James Taylor</h6>
+                                <p class="author-role">Target Pest Control</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">I am out on the field all day. This system handles all my scheduling. I can focus on treatments instead of returning calls.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Rodriguez" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Michael Rodriguez</h6>
+                                <p class="author-role">Elite Exterminators</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">The voice calling feature is amazing. Our customers get immediate help when they see a bug. We have grown our route by 40%.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Lisa Anderson" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Lisa Anderson</h6>
+                                <p class="author-role">Local Pest Experts</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>4.8</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 3 (Hidden on mobile and tablet) -->
+            <div class="testimonial-column d-none d-lg-block" data-direction="up">
+                <div class="testimonial-track">
+                    <!-- Original testimonials -->
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">Our customers like the natural conversation. It feels personal and fast. We expanded our service area without adding office staff.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jennifer Lee" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Jennifer Lee</h6>
+                                <p class="author-role">Eco Pest Solutions</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>4.8</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">The calendar sync is perfect. Everything links to our tech routes. Setup was easy and the system just works.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Robert Kim" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Robert Kim</h6>
+                                <p class="author-role">Kim's Termite & Pest</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">Finally a solution that works for home services. The AI is smart and our booking rate is at an all-time high.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Maria Garcia" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Maria Garcia</h6>
+                                <p class="author-role">Pest Techs</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>4.9</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">Our customers like the natural conversation. It feels personal and fast. We expanded our service area without adding office staff.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jennifer Lee" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Jennifer Lee</h6>
+                                <p class="author-role">Eco Pest Solutions</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>4.8</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                    
+                    <div class="testimonial-card-modern">
+                        <p class="testimonial-text">The calendar sync is perfect. Everything links to our tech routes. Setup was easy and the system just works.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Robert Kim" class="author-avatar">
+                            <div class="author-info">
+                                <h6 class="author-name">Robert Kim</h6>
+                                <p class="author-role">Kim's Termite & Pest</p>
+                            </div>
+                            <div class="testimonial-rating"><i class="fas fa-star "></i>5.0</div>
+                        </div>
+                        <div class="testimonial-gradient-accent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+   
+    </div>
+</section>
+
+
+<!-- FAQ Section -->
+<section class="faq-section py-5" id="faq">
+    <div class="container" style="max-width: 800px;">
+        <div class="text-center mb-5">
+            <h2 class="section-title mb-3">
+                Frequently Asked <span class="gradient-text">Questions</span>
+            </h2>
+            <p class="section-subtitle">
+                Common questions from pest control owners.
+            </p>
+        </div>
+        <div class="accordion" id="pestControlFaq">
+            <div class="accordion-item mb-3 border-0 shadow-sm rounded">
+                <h2 class="accordion-header" id="faqHeading1">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                        Can the AI tell the difference between a termite inspection and a general pest spray?
+                    </button>
+                </h2>
+                <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#pestControlFaq">
+                    <div class="accordion-body text-secondary">
+                        Yes. You can customize the AI to ask specific questions about the type of pest, the size of the property, and the urgency. It will book the right amount of time for the right job type.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item mb-3 border-0 shadow-sm rounded">
+                <h2 class="accordion-header" id="faqHeading2">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                        What if a customer calls with a serious infestation emergency?
+                    </button>
+                </h2>
+                <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#pestControlFaq">
+                    <div class="accordion-body text-secondary">
+                        The AI can be trained to recognize emergency keywords like "bed bugs" or "swarming termites" and immediately forward the call to your mobile phone or alert you via SMS.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item mb-3 border-0 shadow-sm rounded">
+                <h2 class="accordion-header" id="faqHeading3">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                        Do I have to change my current phone number?
+                    </button>
+                </h2>
+                <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#pestControlFaq">
+                    <div class="accordion-body text-secondary">
+                        No. You can keep your existing business number. You simply set up call forwarding for when you are unable to answer, and Booky AI will pick up the missed call instantly.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-band-section">
+    <div class="cta-band-inner">
+
+        <!-- Background decorative orbs -->
+        <div class="cta-band-orb cta-band-orb-1"></div>
+        <div class="cta-band-orb cta-band-orb-2"></div>
+
+        <!-- Left: Text Content -->
+        <div class="cta-band-left">
+            <h2 class="cta-band-heading">
+                Get started with <br>BookyAI today
+            </h2>
+            <p class="cta-band-sub">
+                Try BookyAI free for 14 days. You will have access to every feature.
+                Cancel any time.
+            </p>
+
+            <!-- Trust pills -->
+            <div class="cta-band-pills">
+                <span class="cta-pill"><i class="fas fa-check-circle"></i> 14-Day Free Trial</span>
+             
+                <span class="cta-pill"><i class="fas fa-times-circle"></i> Cancel Anytime</span>
+            </div>
+
+            <div class="cta-band-actions">
+                <a href="/accounts/signup/" class="cta-band-btn-primary">
+                    Start your free trial &nbsp;<i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="/contact" class="cta-band-btn-ghost">Talk to Sales</a>
+            </div>
+        </div>
+
+        <!-- Right: Dashboard Mockup -->
+        <div class="cta-band-right">
+            <div class="cta-band-mockup-wrap">
+                <!-- Browser chrome bar -->
+                <div class="cta-band-browser-bar">
+                    <span class="cta-bd"></span>
+                    <span class="cta-bd"></span>
+                    <span class="cta-bd"></span>
+                    <span class="cta-url-bar">bookyai.co.uk / dashboard</span>
+                </div>
+                <img src="images/dashboard.webp"
+                     class="cta-band-mockup-img"
+                     alt="BookyAI Dashboard">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+
+        <!-- Top: brand + columns + newsletter -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row g-5">
+
+                    <!-- Brand col -->
+                    <div class="col-12 col-lg-4">
+                        <div class="footer-brand-wrap">
+                            <a href="/" class="footer-brand-logo">
+                               
+                                <img src="images/dark-logo.png" alt="Booky AI"
+                                    style="height: 36px; object-fit: contain;" loading="lazy">
+                                
+                            </a>
+                            <p class="footer-desc">
+                                Transforming how businesses manage appointments with AI-powered automation.
+                                Available 24/7 to help you grow.
+                            </p>
+                            <!-- Social -->
+                            <div class="footer-socials">
+                                <a href="#" class="footer-social" aria-label="LinkedIn"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="footer-social" aria-label="Instagram"><i
+                                        class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Link columns -->
+                    <div class="col-6 col-sm-4 col-lg-2">
+                        <h6 class="footer-col-heading">Product</h6>
+                        <ul class="footer-col-links">
+                            <li><a href="/features">Features</a></li>
+                            <li><a href="/pricing">Pricing</a></li>
+                            <li><a href="/use-cases">Use Cases</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-lg-2">
+                        <h6 class="footer-col-heading">Company</h6>
+                        <ul class="footer-col-links">
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="https://blog.bookyai.co.uk" target="_blank">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-lg-2">
+                        <h6 class="footer-col-heading">Support</h6>
+                        <ul class="footer-col-links">
+                            <li><a href="/help">Help Center</a></li>
+                            <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/changelog">ChangeLog</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-lg-2">
+                        <h6 class="footer-col-heading">Legal</h6>
+                        <ul class="footer-col-links">
+                            <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="/refund-policy">Refund Policy</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p class="footer-copy">
+                        &copy; {% now "Y" %} BookyAI Ltd. All rights reserved.
+                    </p>
+                    <div class="footer-trust-badges">
+                        <span class="footer-trust-badge">
+                            <i class="fas fa-shield-alt"></i> SSL Secured
+                        </span>
+                        <span class="footer-trust-badge">
+                            <i class="fas fa-lock"></i> GDPR Compliant
+                        </span>
+                        <span class="footer-trust-badge">
+                            <i class="fas fa-check-circle"></i> SOC 2
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper (deferred — non-blocking) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Custom JS -->
+    <script src="js/base.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/core/conversation_sim.js" defer></script>
+    <script src="js/core/sol_timer.js" defer></script>
+
+
+    <!-- Toast init handled by base.js (initToasts) -->
+
+    <!-- AOS Animation Library (deferred — non-blocking) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 80,
+                    easing: 'ease-out-cubic',
+                });
+            }
+        });
+    </script>
+
+
+
+    <!-- Cal floating-popup embed code begins -->
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "bookyai-demo", { origin: "https://app.cal.com" });
+
+        Cal.ns["bookyai-demo"]("floatingButton", { "calLink": "booky-ai/bookyai-demo", "config": { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" }, "buttonText": "Book Demo", "hideButtonIcon": false });
+        Cal.ns["bookyai-demo"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+    </script>
+    <!-- Cal floating-popup embed code ends -->
+
+</body>
+
+</html>

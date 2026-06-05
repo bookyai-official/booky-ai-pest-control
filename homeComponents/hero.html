@@ -1,0 +1,109 @@
+{% load static %}
+<!-- Hero Section -->
+<section class="hero-section py-10">
+    <!-- Animated Background Grid -->
+    <div class="hero-grid-bg"></div>
+    
+    <!-- Floating AI Particles -->
+    <div class="ai-particles">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+    </div>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9 mt-5">
+                <div class="hero-content text-center position-relative">
+   
+                    
+                    <!-- Main Heading -->
+                    <h1 class="mb-4">
+                        The AI Receptionist Built for 
+                        <span class="gradient-text d-block mt-0">
+                            <span id="typed-industry">Home Service Businesses</span><span class="typed-cursor">|</span>
+                        </span>
+                    </h1>
+
+                    <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const industries = [
+                            "Cleaners",
+                            "Plumbers",
+                            "Electricians",
+                            "HVAC Techs",
+                            "Roofers",
+                            "Consultants",
+                            "Trainers",
+                            "Salons"
+                        ];
+                        let industryIndex = 0;
+                        let charIndex = 0;
+                        let isDeleting = false;
+                        const typedElement = document.getElementById('typed-industry');
+                        const typingSpeed = 100;
+                        const deletingSpeed = 50;
+                        const pauseBetween = 2000;
+
+                        function type() {
+                            const currentIndustry = industries[industryIndex];
+                            
+                            if (isDeleting) {
+                                typedElement.textContent = currentIndustry.substring(0, charIndex - 1);
+                                charIndex--;
+                            } else {
+                                typedElement.textContent = currentIndustry.substring(0, charIndex + 1);
+                                charIndex++;
+                            }
+
+                            let typeSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+                            if (!isDeleting && charIndex === currentIndustry.length) {
+                                isDeleting = true;
+                                typeSpeed = pauseBetween;
+                            } else if (isDeleting && charIndex === 0) {
+                                isDeleting = false;
+                                industryIndex = (industryIndex + 1) % industries.length;
+                                typeSpeed = 500;
+                            }
+
+                            setTimeout(type, typeSpeed);
+                        }
+
+                        // Start animation after a small delay
+                        setTimeout(type, 1000);
+                    });
+                    </script>
+                    
+                    <!-- Subtitle -->
+                    <p class="hero-subtitle mb-5">
+                        Plumbers, Cleaners, AC Techs, and Roofers use Booky AI to capture every lead, book more jobs, and stop wasting time on phone calls.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
+                        <a href="/accounts/signup/" class="btn btn-primary px-4 px-md-5 py-3">
+                            <span>Stop Missing Jobs</span>
+                        </a>
+                        <a href="#how-it-works" class="btn btn-secondary px-4 px-md-5 py-3">
+                            <span>How it works?</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Conversation Simulation Component -->
+                    <div class="hero-dashboard-mockup mt-5 position-relative">
+                        <!-- Glow effect -->
+                        <div class="position-absolute top-50 start-50 translate-middle w-100 h-100 bg-primary rounded-circle" style="opacity: 0.15; filter: blur(100px); z-index: -1;"></div>
+                        
+                        {% include 'core/homeComponents/conversation_sim.html' %}
+                        
+                    </div>
+                    
+             
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

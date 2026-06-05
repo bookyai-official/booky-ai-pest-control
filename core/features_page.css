@@ -1,0 +1,515 @@
+/* BOOKY AI — Features Page (Redesigned) */
+
+/* ── Shared Utilities & Design Tokens ────────────────────── */
+:root {
+    --fp-brand: var(--brand, #6366f1);
+    --fp-brand-rgb: var(--brand-rgb, 99, 102, 241);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--fp-brand) 0%, var(--brand-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================================
+   BACKGROUND ELEMENTS (Consistent with Pricing)
+   ============================================================ */
+.fp-bg-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.animated-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(var(--fp-brand-rgb), 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at 50% 50%, black, transparent 80%);
+}
+
+.floating-orbs .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    animation: orbFloat 20s infinite alternate ease-in-out;
+}
+
+.orb-1 { width: 400px; height: 400px; background: var(--fp-brand); top: -10%; left: -10%; }
+.orb-2 { width: 300px; height: 300px; background: var(--brand-light); bottom: 10%; right: -5%; animation-delay: -5s; }
+.orb-3 { width: 250px; height: 250px; background: var(--primary); top: 40%; left: 60%; animation-delay: -10s; }
+
+@keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.fp-hero {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.fp-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(var(--fp-brand-rgb), 0.1);
+    border: 1px solid rgba(var(--fp-brand-rgb), 0.2);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--brand-light);
+    margin-bottom: var(--space-xl);
+}
+
+.fp-dot {
+    width: 8px;
+    height: 8px;
+    background: #10B981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px #10B981;
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.fp-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 850;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+}
+
+.fp-hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   EXPANDING CARDS SECTION (Inspiration: solution.html)
+   ============================================================ */
+.fp-expanding-section {
+    padding: var(--space-3xl) 0;
+    position: relative;
+    z-index: 2;
+}
+
+.fp-exp-container {
+    display: flex;
+    gap: var(--space-md);
+    height: 650px;
+    margin-top: var(--space-2xl);
+}
+
+.fp-exp-card {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.fp-exp-card.active {
+    flex: 2;
+    background: rgba(var(--fp-brand-rgb), 0.05);
+    border-color: var(--fp-brand);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.fp-exp-timer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background: var(--fp-brand);
+    transition: height 0.1s linear;
+    z-index: 10;
+}
+
+.fp-exp-inner {
+    padding: var(--space-xl);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fp-exp-num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    opacity: 0.2;
+    transition: all 0.5s ease;
+}
+
+.fp-exp-card.active .fp-exp-num {
+    color: var(--fp-brand);
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.fp-exp-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.fp-exp-body {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease 0.2s;
+    pointer-events: none;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.fp-exp-card.active .fp-exp-body {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.fp-exp-desc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-xl);
+    max-width: 450px;
+}
+
+.fp-exp-visual {
+    flex-grow: 1;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+}
+
+@media (max-width: 991px) {
+    .fp-exp-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .fp-exp-card {
+        height: auto;
+        flex: none;
+    }
+    .fp-exp-card.active {
+        flex: none;
+    }
+    .fp-exp-body {
+        opacity: 1;
+        transform: none;
+        pointer-events: all;
+        display: block;
+    }
+    .fp-exp-timer { display: none; }
+}
+
+/* ============================================================
+   WORKFLOW GRID (Inspiration: how_it_works.html)
+   ============================================================ */
+.fp-workflow-section {
+    padding: var(--space-3xl) 0;
+    position: relative;
+    z-index: 2;
+}
+
+.fp-workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.fp-workflow-col {
+    padding: var(--space-2xl);
+    border-right: 1px solid var(--border-default);
+    transition: background 0.3s ease;
+}
+
+.fp-workflow-col:last-child { border-right: none; }
+.fp-workflow-col:hover { background: rgba(var(--fp-brand-rgb), 0.03); }
+
+.fp-workflow-step {
+    width: 40px;
+    height: 40px;
+    background: var(--fp-brand);
+    color: white;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: var(--space-xl);
+    box-shadow: 0 10px 20px rgba(var(--fp-brand-rgb), 0.3);
+}
+
+.fp-workflow-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+}
+
+.fp-workflow-desc {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+    .fp-workflow-grid { grid-template-columns: 1fr; }
+    .fp-workflow-col { border-right: none; border-bottom: 1px solid var(--border-default); }
+}
+
+/* ============================================================
+   FEATURE GRID (Everything Else)
+   ============================================================ */
+.fp-feature-section {
+    padding: var(--space-3xl) 0;
+    position: relative;
+    z-index: 2;
+}
+
+.fp-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.fp-feature-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-default);
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.fp-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-color, var(--fp-brand));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fp-feature-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--accent-color, var(--fp-brand));
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.fp-feature-card:hover::before {
+    opacity: 1;
+}
+
+.fp-f-icon-wrap {
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--accent-rgb), 0.1);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+    font-size: 1.75rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.fp-feature-card:hover .fp-f-icon-wrap {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.fp-f-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+}
+
+.fp-f-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+    .fp-feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+    .fp-feature-grid { grid-template-columns: 1fr; }
+}
+
+/* Accent Colors */
+.accent-blue { --accent-color: #3b82f6; --accent-rgb: 59, 130, 246; }
+.accent-purple { --accent-color: #a855f7; --accent-rgb: 168, 85, 247; }
+.accent-orange { --accent-color: #f97316; --accent-rgb: 249, 115, 22; }
+.accent-green { --accent-color: #10b981; --accent-rgb: 16, 185, 129; }
+.accent-cyan { --accent-color: #06b6d4; --accent-rgb: 6, 182, 212; }
+.accent-pink { --accent-color: #ec4899; --accent-rgb: 236, 72, 153; }
+
+/* ============================================================
+   MOCKUP ELEMENTS (Reused from HIW/Solution)
+   ============================================================ */
+.hiw-mock-shell {
+    width: 280px;
+    height: 380px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-2xl);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.hiw-mock-header {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-lg);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.hiw-mock-body {
+    flex-grow: 1;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+.hiw-bubble {
+    padding: 12px var(--space-md);
+    border-radius: var(--radius-lg);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 85%;
+    margin-bottom: var(--space-sm);
+}
+
+.hiw-bubble.ai {
+    background: var(--fp-brand);
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.hiw-bubble.user {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.incoming-card {
+    background: rgba(var(--fp-brand-rgb), 0.08);
+    border: 1px solid rgba(var(--fp-brand-rgb), 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.pulse-ring {
+    width: 12px;
+    height: 12px;
+    background: var(--fp-brand);
+    border-radius: var(--radius-full);
+    position: relative;
+}
+
+.pulse-ring::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-full);
+    background: var(--fp-brand);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+.channel-pill {
+    padding: 10px var(--space-md);
+    background: var(--bg-card-raised);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+    color: var(--text-secondary);
+}
+
+.success-circle {
+    color: var(--status-success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: var(--space-xl) auto var(--space-md);
+}
+
+.success-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+}
+
+.success-item i { color: var(--status-success); }

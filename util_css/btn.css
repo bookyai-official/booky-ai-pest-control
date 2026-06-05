@@ -1,0 +1,386 @@
+/* =============================================================================
+   BOOKY AI — Button Components
+   buttons.css
+   ============================================================================= */
+
+
+/* =============================================================================
+   Base Button
+   All variants extend this. Never use .btn alone without a variant.
+   ============================================================================= */
+
+.btn {
+  display: inline-flex;
+  text-decoration: none !important;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.5625rem 1.25rem;    /* 9px 20px — optically balanced */
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color     var(--transition-fast),
+    color            var(--transition-fast),
+    box-shadow       var(--transition-fast),
+    opacity          var(--transition-fast),
+    transform        var(--transition-fast);
+}
+
+a{
+  text-decoration: none !important;
+}
+
+.btn:active {
+  transform: scale(0.975);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Icon-only buttons */
+.btn > svg,
+.btn > .btn-icon {
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
+
+
+/* =============================================================================
+   Size Modifiers
+   ============================================================================= */
+
+.btn-sm {
+  font-size: 0.8125rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-sm);
+  gap: var(--space-2xs);
+}
+
+.btn-lg {
+  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Square icon-only button */
+.btn-icon-only {
+  padding: 0.5625rem;
+  aspect-ratio: 1;
+}
+
+.btn-link {
+  padding: 0;
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.btn-icon-only.btn-sm { padding: 0.375rem; }
+.btn-icon-only.btn-lg { padding: 0.75rem;  }
+
+/* Full width */
+.btn-block {
+  width: 100%;
+}
+
+
+/* =============================================================================
+   Variant Mixin Pattern
+   Solid:   --_bg, --_bg-hover, --_border, --_border-hover, --_text
+   Outline: --_bg, --_bg-hover, --_border, --_text, --_text-hover
+   ============================================================================= */
+
+
+/* --- Primary (Brand Green) --- */
+
+.btn-primary {
+  background-color: var(--brand);
+  border-color:     var(--brand-dark);
+  color:            var(--text-on-brand);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--brand-dark);
+  border-color:     var(--brand-dark);
+  box-shadow:       0 0 0 3px rgba(var(--brand-rgb), 0.2);
+}
+
+.btn-outline-primary {
+  background-color: rgba(var(--brand-rgb), 0.06);
+  border-color:     var(--brand);
+  color:            var(--brand);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus-visible {
+  background-color: var(--brand);
+  border-color:     var(--brand);
+  color:            var(--text-on-brand);
+}
+
+.btn-ghost-primary {
+  background-color: transparent;
+  border-color:     transparent;
+  color:            var(--brand);
+}
+
+.btn-ghost-primary:hover,
+.btn-ghost-primary:focus-visible {
+  background-color: rgba(var(--brand-rgb), 0.08);
+  border-color:     transparent;
+}
+
+
+/* --- Secondary (Neutral Surface) --- */
+
+.btn-secondary {
+  background-color: var(--bg-card-raised);
+  border-color:     var(--border-default);
+  color:            var(--text-primary);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background-color: var(--border-default);
+  border-color:     var(--border-strong);
+  color:            var(--text-primary);
+}
+
+.btn-outline-secondary {
+  background-color: transparent;
+  border-color:     var(--border-default);
+  color:            var(--text-secondary);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus-visible {
+  background-color: var(--bg-card-raised);
+  border-color:     var(--border-strong);
+  color:            var(--text-primary);
+}
+
+.btn-ghost-secondary {
+  background-color: transparent;
+  border-color:     transparent;
+  color:            var(--text-secondary);
+}
+
+.btn-ghost-secondary:hover,
+.btn-ghost-secondary:focus-visible {
+  background-color: var(--glass-bg-hover);
+  color:            var(--text-primary);
+}
+
+
+/* --- Danger (Error Red) --- */
+
+.btn-danger {
+  background-color: var(--status-error);
+  border-color:     var(--status-error-dark);
+  color:            #ffffff;
+}
+
+.btn-danger:hover,
+.btn-danger:focus-visible {
+  background-color: var(--status-error-dark);
+  border-color:     var(--status-error-dark);
+  box-shadow:       0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.btn-outline-danger {
+  background-color: transparent;
+  border-color:     var(--status-error);
+  color:            var(--status-error);
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:focus-visible {
+  background-color: var(--status-error);
+  border-color:     var(--status-error);
+  color:            #ffffff;
+  box-shadow:       0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.btn-ghost-danger {
+  background-color: transparent;
+  border-color:     transparent;
+  color:            var(--status-error);
+}
+
+.btn-ghost-danger:hover,
+.btn-ghost-danger:focus-visible {
+  background-color: var(--status-error-bg);
+  color:            var(--status-error-dark);
+}
+
+
+/* --- Success (Green) --- */
+
+.btn-success {
+  background-color: var(--status-success);
+  border-color:     var(--status-success-dark);
+  color:            #ffffff;
+}
+
+.btn-success:hover,
+.btn-success:focus-visible {
+  background-color: var(--status-success-dark);
+  border-color:     var(--status-success-dark);
+  box-shadow:       0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.btn-outline-success {
+  background-color: transparent;
+  border-color:     var(--status-success);
+  color:            var(--status-success);
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus-visible {
+  background-color: var(--status-success);
+  border-color:     var(--status-success);
+  color:            #ffffff;
+  box-shadow:       0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.btn-ghost-success {
+  background-color: transparent;
+  border-color:     transparent;
+  color:            var(--status-success);
+}
+
+.btn-ghost-success:hover,
+.btn-ghost-success:focus-visible {
+  background-color: var(--status-success-bg);
+  color:            var(--status-success-dark);
+}
+
+
+/* --- Warning --- */
+
+.btn-warning {
+  background-color: var(--status-warning);
+  border-color:     var(--status-warning-dark);
+  color:            #ffffff;
+}
+
+.btn-warning:hover,
+.btn-warning:focus-visible {
+  background-color: var(--status-warning-dark);
+  border-color:     var(--status-warning-dark);
+  box-shadow:       0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.btn-outline-warning {
+  background-color: transparent;
+  border-color:     var(--status-warning);
+  color:            var(--status-warning);
+}
+
+.btn-outline-warning:hover,
+.btn-outline-warning:focus-visible {
+  background-color: var(--status-warning);
+  border-color:     var(--status-warning);
+  color:            #ffffff;
+  box-shadow:       0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.btn-ghost-warning {
+  background-color: transparent;
+  border-color:     transparent;
+  color:            var(--status-warning);
+}
+
+.btn-ghost-warning:hover,
+.btn-ghost-warning:focus-visible {
+  background-color: var(--status-warning-bg);
+  color:            var(--status-warning-dark);
+}
+
+
+/* =============================================================================
+   Loading State
+   Add .btn--loading to show spinner, keeps button width stable
+   ============================================================================= */
+
+.btn--loading {
+  pointer-events: none;
+  position: relative;
+  color: transparent !important;  /* hide label text */
+}
+
+.btn--loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  color: white;
+  animation: btn-spin 0.6s linear infinite;
+}
+
+/* Outline buttons: spinner uses brand/status color */
+[class*="btn-outline"].btn--loading::after,
+[class*="btn-ghost"].btn--loading::after {
+  color: inherit;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* =============================================================================
+   Button Group
+   <div class="btn-group"> wraps adjacent buttons
+   ============================================================================= */
+
+.btn-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-group .btn {
+  border-radius: 0;
+}
+
+.btn-group .btn:first-child {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.btn-group .btn:last-child {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.btn-group .btn + .btn {
+  margin-left: -1px;   /* collapse double borders */
+}
+
+.btn-group .btn:hover,
+.btn-group .btn:focus-visible {
+  z-index: 1;          /* hovered border renders on top */
+}

@@ -1,0 +1,494 @@
+/* BOOKY AI — Pricing Page */
+
+/* Shared Styles / Reset overrides if needed */
+.pricing-page-wrapper {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: var(--space-3xl);
+}
+
+/* Background Grids & Orbs */
+.animated-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(var(--brand-rgb), 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(var(--brand-rgb), 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, black 10%, transparent 90%);
+}
+
+.floating-orbs {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+.floating-orbs .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+}
+.orb-1 { width: 400px; height: 400px; background: var(--brand); top: -10%; left: 10%; animation: float 20s infinite ease-in-out alternate; }
+.orb-2 { width: 300px; height: 300px; background: var(--brand-light); bottom: 20%; right: -5%; animation: float 15s infinite ease-in-out alternate-reverse; }
+.orb-3 { width: 350px; height: 350px; background: #8B5CF6; top: 40%; left: -10%; animation: float 25s infinite ease-in-out alternate; }
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, -50px); }
+}
+
+/* Text Gradients */
+.text-gradient-brand {
+    background: linear-gradient(135deg, var(--brand), var(--brand-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* HERO SECTION */
+.pricing-hero {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+    line-height: 1.1;
+}
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* TRIAL CARD */
+.trial-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-3xl);
+    position: relative;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-2xl);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    overflow: hidden;
+}
+.trial-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(var(--brand-rgb), 0.3);
+}
+
+.trial-card-glow {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--brand-light), transparent);
+    opacity: 0.5;
+}
+
+.featured-card {
+    border-color: rgba(var(--brand-rgb), 0.3);
+    box-shadow: 0 40px 80px rgba(var(--brand-rgb), 0.2);
+    transform: scale(1.02);
+}
+
+.featured-card .trial-card-glow {
+    opacity: 1;
+    height: 4px;
+}
+
+.trial-card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.trial-duration-badge-simple {
+    background: rgba(var(--brand-rgb), 0.1);
+    border: 1px solid rgba(var(--brand-rgb), 0.2);
+    color: var(--brand-light);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.trial-card-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Feature List */
+.trial-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.feature-bullet {
+    width: 8px;
+    height: 8px;
+    background: var(--brand-light);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 10px var(--brand-light);
+    flex-shrink: 0;
+}
+.feature-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+.feature-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* CTA */
+.btn-trial-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    border: none;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(var(--brand-rgb), 0.4);
+    transition: all 0.3s ease;
+}
+.btn-trial-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(var(--brand-rgb), 0.6);
+    color: white;
+}
+.trial-cta-hint {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+/* Active Badge */
+.trial-active-badge {
+    background: rgba(var(--status-success-rgb), 0.1);
+    color: var(--status-success);
+    border: 1px solid rgba(var(--status-success-rgb), 0.2);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+}
+
+/* HOW IT WORKS / STEPS */
+.step-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+.step-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(var(--brand-rgb), 0.2);
+    transform: translateY(-5px);
+}
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px; height: 30px;
+    background: var(--bg-page);
+    border: 1px solid var(--border-default);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+.step-icon-circle {
+    width: 70px; height: 70px;
+    background: rgba(var(--brand-rgb), 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--brand-light);
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(var(--brand-rgb), 0.2);
+}
+.step-card h4 {
+    color: var(--text-light);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+.step-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* TRUST BAR */
+.trust-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+}
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+.trust-item i {
+    color: var(--brand-light);
+    font-size: 1.2rem;
+}
+
+/* FAQ SECTION */
+.faq-accordion .accordion-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-default);
+    border-radius: 16px !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+.faq-accordion .accordion-button {
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 1.5rem;
+    box-shadow: none !important;
+}
+.faq-accordion .accordion-button:not(.collapsed) {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--brand-light);
+}
+.faq-accordion .accordion-button::after {
+    filter: invert(1);
+}
+.faq-accordion .accordion-body {
+    color: var(--text-secondary);
+    padding: 0 1.5rem 1.5rem;
+    line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+    .trial-card { padding: 2rem; }
+    .trial-card-title { font-size: 1.5rem; }
+}
+@media (max-width: 767px) {
+    .hero-title { font-size: 2.2rem; }
+    .trust-bar { gap: 1.5rem; flex-direction: column; align-items: center; }
+    .trial-card-header .d-flex { flex-direction: column; align-items: flex-start !important; gap: 1rem; }
+}
+
+/* ============================================================
+   FAQ — Split layout: sticky label left + clean accordion right
+   ============================================================ */
+
+.faq-split-section {
+    background: linear-gradient(135deg, var(--border-default) 0%, var(--bg-card-raised) 50%, var(--bg-page) 100%);
+    position: relative;
+}
+
+/* Two-column grid */
+.faq-split-row {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    align-items: start;
+    padding: 2rem 0;
+}
+
+/* ── Left: sticky label ─────────────────────────── */
+.faq-split-label {
+    position: sticky;
+    top: 100px;
+}
+
+.faq-split-heading {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+}
+
+.faq-split-sub {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+}
+
+.faq-split-contact {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.faq-split-contact span {
+    color: var(--brand-light);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: gap 0.25s ease;
+}
+
+.faq-split-contact:hover { color: var(--text-primary); }
+.faq-split-contact:hover span { gap: 0.6rem; }
+
+/* ── Right: accordion list ──────────────────────── */
+.faq-split-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-split-item {
+    border-top: 1px solid var(--border-default);
+    transition: border-color 0.25s ease;
+}
+
+.faq-split-item:last-child {
+    border-bottom: 1px solid var(--border-default);
+}
+
+.faq-split-item.open {
+    border-color: rgba(var(--brand-rgb), 0.25);
+}
+
+/* Question row */
+.faq-split-q {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: opacity 0.25s ease;
+}
+
+.faq-split-q span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.5;
+    flex: 1;
+    transition: color 0.25s ease;
+}
+
+.faq-split-item:not(.open) .faq-split-q span {
+    color: var(--text-secondary);
+}
+
+.faq-split-q:hover span {
+    color: var(--text-primary);
+}
+
+/* Arrow icon */
+.faq-split-icon {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
+    margin-right: 0.25rem;
+}
+
+.faq-split-item.open .faq-split-icon {
+    transform: rotate(180deg);
+    color: var(--brand-light);
+}
+
+/* Answer panel */
+.faq-split-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+.faq-split-item.open .faq-split-a {
+    max-height: 400px;
+    opacity: 1;
+}
+
+.faq-split-a p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    padding-bottom: 1.4rem;
+    margin: 0;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .faq-split-row {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .faq-split-label {
+        position: static;
+    }
+
+    .faq-split-heading { font-size: 2rem; }
+}
+
+@media (max-width: 767.98px) {
+    .faq-split-heading { font-size: 1.7rem; }
+
+    .faq-split-q span { font-size: 0.92rem; }
+
+    .faq-split-q { padding: 1.1rem 0; }
+}

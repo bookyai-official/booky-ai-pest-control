@@ -1,0 +1,39 @@
+{% load static %}
+<div class="conversation-container">
+    <div class="mock-browser-bar">
+        <div class="circles">
+            <span class="circle red"></span>
+            <span class="circle yellow"></span>
+            <span class="circle green"></span>
+        </div>
+        <div class="url-bar">booky-ai.com/ai-agent</div>
+    </div>
+    
+    <div class="chat-window" id="heroChatWindow">
+        <div class="chat-messages" style="background-color: var(--bg-card);" id="heroChatMessages">
+            <!-- Messages will be injected by JS -->
+            <!-- Initial placeholder to avoid empty look -->
+            <div class="chat-message user-message visible">
+                <div class="message-content">Hi, I need to book a plumber for tomorrow morning.</div>
+            </div>
+            <div class="chat-message ai-message visible">
+                <div class="message-content">Hello! I can help with that. What kind of plumbing issue are you having?</div>
+            </div>
+        </div>
+        
+        <div class="typing-indicator" id="heroTypingIndicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="chat-input-area">
+            <div class="mock-input">Message BookyAI...</div>
+            <div class="send-icon">
+                <i class="fas fa-paper-plane"></i>
+            </div>
+        </div>
+    </div>
+
+
+</div>

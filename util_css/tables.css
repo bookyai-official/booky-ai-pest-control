@@ -1,0 +1,465 @@
+/* =============================================================================
+   BOOKY AI — Table Components
+   tables.css
+   ============================================================================= */
+
+
+/* =============================================================================
+   1. BASE TABLE
+   ============================================================================= */
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+
+  /* Bootstrap overrides — no !important needed if loaded after Bootstrap */
+  --bs-table-bg:          transparent;
+  --bs-table-hover-bg:    var(--glass-bg-hover);
+  --bs-table-striped-bg:  var(--glass-bg);
+  --bs-table-border-color: var(--border-default);
+  --bs-table-color:       var(--text-secondary);
+}
+
+/* Reset Bootstrap's forced backgrounds */
+.table td,
+.table tr,
+.table tbody,
+.table thead,
+.table tfoot {
+  background-color: transparent;
+}
+
+
+/* =============================================================================
+   2. TABLE HEAD
+   ============================================================================= */
+
+.table thead th {
+  color: var(--text-muted);
+  font-size: 0.6875rem;               /* 11px */
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border-default);
+  border-top: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Sortable column header */
+.table thead th.sortable {
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.table thead th.sortable:hover {
+  color: var(--text-primary);
+}
+
+.table thead th.sort-asc::after  { content: " ↑"; opacity: 0.7; }
+.table thead th.sort-desc::after { content: " ↓"; opacity: 0.7; }
+
+
+/* =============================================================================
+   3. TABLE BODY
+   ============================================================================= */
+
+.table tbody td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+  border-top: none;
+  vertical-align: middle;
+  color: var(--text-secondary);
+  transition: background-color var(--transition-fast);
+}
+
+/* Last row — no bottom border */
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover row */
+.table tbody tr:hover td {
+  background-color: var(--glass-bg-hover);
+  color: var(--text-primary);
+}
+
+/* Selected row */
+.table tbody tr.is-selected td {
+  background-color: rgba(var(--brand-rgb), 0.07);
+  color: var(--text-primary);
+}
+
+.table tbody tr.is-selected td:first-child {
+  border-left: 2px solid var(--brand);
+}
+
+
+/* =============================================================================
+   4. TABLE FOOTER
+   ============================================================================= */
+
+.table tfoot td {
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--border-default);
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+
+/* =============================================================================
+   5. CELL UTILITIES
+   ============================================================================= */
+
+/* Primary text in a cell (e.g., entity name) */
+.table .cell-primary {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Muted / meta text in a cell */
+.table .cell-meta {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+/* Numeric / mono values */
+.table .cell-number {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-family: ui-monospace, monospace;
+  color: var(--text-primary);
+}
+
+/* Action column — right-aligned, no wrap */
+.table .cell-actions {
+  text-align: right;
+  white-space: nowrap;
+  width: 1%;           /* shrink to content */
+}
+
+
+/* =============================================================================
+   6. TABLE VARIANTS
+   ============================================================================= */
+
+/* --- Bordered: full grid lines --- */
+.table--bordered th,
+.table--bordered td {
+  border: 1px solid var(--border-default);
+}
+
+.table--bordered thead th {
+  border-bottom: 1px solid var(--border-strong);
+}
+
+/* --- Striped rows --- */
+.table--striped tbody tr:nth-child(even) td {
+  background-color: var(--glass-bg);
+}
+
+/* --- Compact: tighter padding --- */
+.table--compact thead th,
+.table--compact tbody td,
+.table--compact tfoot td {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.8125rem;
+}
+
+/* --- Flush: no outer horizontal padding --- */
+.table--flush thead th:first-child,
+.table--flush tbody td:first-child,
+.table--flush tfoot td:first-child {
+  padding-left: 0;
+}
+
+.table--flush thead th:last-child,
+.table--flush tbody td:last-child,
+.table--flush tfoot td:last-child {
+  padding-right: 0;
+}
+
+/* --- No hover effect --- */
+.table--static tbody tr:hover td {
+  background-color: transparent;
+  color: var(--text-secondary);
+}
+
+
+/* =============================================================================
+   7. TABLE WRAPPER
+   Scroll container for wide tables — use instead of Bootstrap's .table-responsive
+   ============================================================================= */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-card);
+
+  /* Fade hint when scrollable */
+  background-image:
+    linear-gradient(to right, var(--bg-card) 0%, transparent 2%),
+    linear-gradient(to left,  var(--bg-card) 0%, transparent 2%);
+  background-attachment: local, local;
+}
+
+/* Remove double borders when table is inside wrapper */
+.table-wrapper .table {
+  margin-bottom: 0;
+}
+
+.table-wrapper .table thead th:first-child { border-radius: var(--radius-lg) 0 0 0; }
+.table-wrapper .table thead th:last-child  { border-radius: 0 var(--radius-lg) 0 0; }
+
+
+/* =============================================================================
+   8. EMPTY STATE
+   ============================================================================= */
+
+.table-empty {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-xl) !important;
+  color: var(--text-muted);
+}
+
+.table-empty-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+  opacity: 0.4;
+}
+
+.table-empty-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+
+/* =============================================================================
+   9. RESPONSIVE — Card-style stacked rows on mobile
+   Usage: add data-label="Column Name" to each <td>
+   ============================================================================= */
+
+@media (max-width: 768px) {
+
+  .table--responsive thead {
+    display: none;
+  }
+
+  .table--responsive tbody tr {
+    display: block;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-sm);
+    overflow: hidden;
+  }
+
+  .table--responsive tbody tr:hover {
+    border-color: var(--border-strong);
+  }
+
+  .table--responsive tbody tr.is-selected {
+    border-color: var(--brand);
+    border-left-width: 3px;
+  }
+
+  .table--responsive tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    padding: var(--space-xs) var(--space-md);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .table--responsive tbody tr:last-child td:last-child {
+    border-bottom: none;
+  }
+
+  /* data-label column header */
+  .table--responsive tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: left;
+    flex-shrink: 0;
+    margin-right: var(--space-sm);
+  }
+
+  /* First cell (usually entity name) — left aligned, full row feel */
+  .table--responsive tbody td:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    padding-top: var(--space-sm);
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .table--responsive tbody td:first-child::before {
+    display: none;
+  }
+
+  /* Actions cell — center the buttons */
+  .table--responsive tbody td.cell-actions {
+    justify-content: flex-end;
+    padding-bottom: var(--space-sm);
+  }
+
+  .table--responsive tbody td.cell-actions::before {
+    display: none;
+  }
+}
+
+/* =============================================================================
+   10. PREMIUM DASHBOARD TABLE (.custom-table)
+   Ported from Leads Dashboard for universal use.
+   ============================================================================= */
+
+.custom-table {
+    --bs-table-bg: transparent;
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.03);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.custom-table thead th {
+    color: var(--text-primary);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--border-default);
+}
+
+.custom-table tbody td {
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--border-default);
+    color: var(--text-secondary);
+    vertical-align: middle;
+}
+
+.custom-table tbody tr:hover td {
+    background-color: var(--bs-table-hover-bg);
+}
+
+/* Avatar Utility within Tables */
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    background: var(--brand);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Responsive Custom Table */
+@media (max-width: 768px) {
+    .custom-table thead {
+        display: none;
+    }
+    .custom-table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-default);
+        background-color: var(--bg-card-raised);
+        border-radius: var(--radius-md);
+        padding: 8px 0;
+    }
+    .custom-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+        padding: 8px 16px;
+        border-bottom: none;
+    }
+    .custom-table tbody td:first-child {
+        padding-top: 16px;
+        justify-content: flex-start;
+        text-align: left;
+    }
+    .custom-table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        color: var(--text-muted);
+    }
+}
+
+/* --- Status Badges (Premium) --- */
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 6px;
+    border: 1px solid rgba(var(--text-primary-rgb), 0.1);
+}
+
+/* Status variants using Semantic Colors from util_css */
+.badge-status.pending, .badge-status.inactive { background: var(--status-warning-bg); color: var(--status-warning); border-color: rgba(var(--status-warning-rgb), 0.2); }
+.badge-status.confirmed, .badge-status.new { background: var(--status-info-bg); color: var(--status-info); border-color: rgba(var(--status-info-rgb), 0.2); }
+.badge-status.completed, .badge-status.active, .badge-status.qualified { background: var(--status-success-bg); color: var(--status-success); border-color: rgba(var(--status-success-rgb), 0.2); }
+.badge-status.cancelled, .badge-status.lost { background: var(--status-error-bg); color: var(--status-error); border-color: rgba(var(--status-error-rgb), 0.2); }
+.badge-status.rescheduled, .badge-status.converted { background: rgba(var(--brand-rgb), 0.12); color: var(--brand-light); border-color: rgba(var(--brand-rgb), 0.2); }
+.badge-status.no_show { background: rgba(var(--text-muted-rgb), 0.12); color: var(--text-muted); border-color: rgba(var(--text-muted-rgb), 0.2); }
+.badge-status.diagnostic { background: rgba(var(--status-info-rgb), 0.12); color: var(--status-info); border-color: rgba(var(--status-info-rgb), 0.2); }
+.badge-status.awaiting_quote { background: rgba(var(--status-warning-rgb), 0.12); color: var(--status-warning); border-color: rgba(var(--status-warning-rgb), 0.2); }
+.badge-status.quote_sent { background: rgba(var(--brand-rgb), 0.12); color: var(--brand-light); border-color: rgba(var(--brand-rgb), 0.2); }
+.badge-status.quote_approved { background: rgba(var(--status-success-rgb), 0.12); color: var(--status-success); border-color: rgba(var(--status-success-rgb), 0.2); }
+.badge-status.staff_on_the_way { background: rgba(var(--brand-rgb), 0.12); color: var(--brand-light); border-color: rgba(var(--brand-rgb), 0.2); }
+.badge-status.staff_arrived { background: rgba(var(--status-success-rgb), 0.12); color: var(--status-success); border-color: rgba(var(--status-success-rgb), 0.2); }
+.badge-status.awaiting_payment { background: rgba(var(--status-warning-rgb), 0.12); color: var(--status-warning); border-color: rgba(var(--status-warning-rgb), 0.2); }
+.badge-status.skipped { background: rgba(var(--text-muted-rgb), 0.12); color: var(--text-muted); border-color: rgba(var(--text-muted-rgb), 0.2); }
+
+.badge-dot-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: currentColor;
+}
+
+/* --- Action Buttons (Premium) --- */
+.btn-icon-action {
+    color: var(--text-muted);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+    background: var(--bg-card-raised);
+    border: 1px solid var(--border-default);
+    margin-left: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+}
+
+.btn-icon-action:hover {
+    background-color: var(--brand);
+    color: white;
+    border-color: var(--brand);
+}
+
+.btn-icon-action.text-danger:hover {
+    background-color: var(--status-error);
+    border-color: var(--status-error);
+    color: white !important;
+}

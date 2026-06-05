@@ -1,0 +1,156 @@
+{% load subscription_tags %}
+<!-- Pricing Section -->
+<section class="prc-section" id="pricing">
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h2 class="prc-heading">
+                Simple, <span class="gradient-text">Transparent</span> Pricing
+            </h2>
+            <p class="prc-sub">
+                Our plans are designed to meet your needs as you grow.<br>
+                No hidden fees &bull; Cancel anytime.
+            </p>
+
+            <!-- Billing Toggle — only shown when yearly plans exist in DB -->
+            {% if has_yearly_plans %}
+            <div class="prc-toggle">
+                <button class="prc-toggle-btn active" id="toggleMonthly" onclick="setPricing('monthly')">Monthly</button>
+                <button class="prc-toggle-btn" id="toggleYearly" onclick="setPricing('yearly')">
+                    Yearly &nbsp;<span class="prc-save-badge">Save ~20%</span>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Cards Row -->
+        <div class="prc-cards-row">
+
+            {% if plans %}
+                {% for plan in plans %}
+                {% if not plan.is_trial or not has_used_trial %}
+                <div class="prc-card {% if plan.is_featured %}prc-card--featured{% endif %}">
+
+                    <!-- Card top: name + price -->
+                    <div class="prc-card-top">
+                        <div class="prc-card-name-wrap">
+                            <span class="prc-plan-name">Starter Plan</span>
+                        </div>
+                        <div class="prc-price-wrap">
+                            <span class="prc-currency">$</span>
+                            <span class="prc-amount"
+                                  data-monthly="{{ plan.price|floatformat:0 }}"
+                                  data-yearly="{% if plan.billing_period == 'year' %}{{ plan.price|floatformat:0 }}{% else %}{{ plan.price|floatformat:0 }}{% endif %}">{{ plan.price|floatformat:0 }}</span>
+                            <span class="prc-period"> {{ plan.get_billing_period_display }}</span>
+                        </div>
+                    </div>
+
+                    <div class="prc-divider"></div>
+
+                    <!-- Description -->
+                    <p class="prc-desc">{{ plan.description|default:"Perfect for your business" }}</p>
+
+                    <!-- CTA -->
+                    {% if plan.is_trial %}
+                        <a href="{% url 'subscription:start_trial' plan.id %}" class="prc-btn {% if plan.is_featured %}prc-btn--primary{% endif %}">
+                            Start Free Trial
+                        </a>
+                    {% else %}
+                        <a href="{% url 'subscription:checkout' plan.id %}"
+                           class="prc-btn prc-btn--primary">
+                            Subscribe
+                        </a>
+                    {% endif %}
+
+                    <!-- Feature list -->
+                    <div class="prc-includes-label">Plan includes:</div>
+                    <ul class="prc-features">
+                        {% if plan.minutes_limit > 0 %}
+                        <li><i class="fas fa-check"></i> {{ plan.minutes_limit }} minutes/month</li>
+                        {% elif plan.minutes_limit == 0 and plan.price > 0 %}
+                        <li><i class="fas fa-check"></i> Unlimited minutes</li>
+                        {% endif %}
+
+                        {% if plan.sms_limit > 0 %}
+                        <li><i class="fas fa-check"></i> {{ plan.sms_limit }} AI Messages/month</li>
+                        {% elif plan.sms_limit == 0 and plan.price > 0 %}
+                        <li><i class="fas fa-check"></i> Unlimited AI Messages</li>
+                        {% endif %}
+
+                        {% with kb_chars=plan.usage_limits|dict_get:"kb_chars" %}
+                        {% if kb_chars > 0 %}
+                        <li><i class="fas fa-check"></i> {{ kb_chars|format_limit }} KB characters</li>
+                        {% elif plan.price > 0 %}
+                        <li><i class="fas fa-check"></i> Unlimited KB storage</li>
+                        {% endif %}
+                        {% endwith %}
+
+                        {% with workspaces=plan.usage_limits|dict_get:"workspaces" %}
+                        {% if workspaces > 0 %}
+                        <li><i class="fas fa-check"></i> {{ workspaces }} workspace{{ workspaces|pluralize }}</li>
+                        {% elif plan.price > 0 %}
+                        <li><i class="fas fa-check"></i> Unlimited workspaces</li>
+                        {% endif %}
+                        {% endwith %}
+
+                        {% with team=plan.usage_limits|dict_get:"team_members" %}
+                        {% if team > 0 %}
+                        <li><i class="fas fa-check"></i> {{ team }} team member{{ team|pluralize }}</li>
+                        {% elif plan.price > 0 %}
+                        <li><i class="fas fa-check"></i> Unlimited team members</li>
+                        {% endif %}
+                        {% endwith %}
+
+                        {% with api=plan.usage_limits|dict_get:"api_rate_limit" %}
+                        {% if api > 0 %}
+                        <li><i class="fas fa-check"></i> {{ api }} API req/min</li>
+                        {% endif %}
+                        {% endwith %}
+
+                        {% if all_pricing_features %}
+                        <li class="prc-features-divider" style="list-style:none; padding:0;"></li>
+                        {% for feature in all_pricing_features %}
+                        {% if plan.allowed_features|has_feature:feature.key %}
+                        <li><i class="fas fa-check"></i> {{ feature.label }}</li>
+                        {% else %}
+                        <li class="feature-excluded"><i class="fas fa-times"></i> {{ feature.label }}</li>
+                        {% endif %}
+                        {% endfor %}
+                        {% else %}
+                        {% for feature in plan.features %}
+                        <li><i class="fas fa-check"></i> {{ feature }}</li>
+                        {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            {% endif %}
+        </div>
+        <!-- end cards row -->
+
+
+    </div>
+</section>
+
+<script>
+function setPricing(period) {
+    var isYearly = period === 'yearly';
+
+    document.getElementById('toggleMonthly').classList.toggle('active', !isYearly);
+    document.getElementById('toggleYearly').classList.toggle('active', isYearly);
+
+    document.querySelectorAll('.prc-amount').forEach(function(el) {
+        el.textContent = isYearly ? el.dataset.yearly : el.dataset.monthly;
+    });
+
+    document.querySelectorAll('.prc-period').forEach(function(el) {
+        el.innerHTML = isYearly
+            ? '/month<br><small>billed annually</small>'
+            : '/month<br><small>per seat</small>';
+    });
+}
+</script>

@@ -1,0 +1,108 @@
+{% load static %}
+
+<!-- FAQ Section -->
+<section class="faq-split-section py-5" id="faq">
+    <div class="container">
+        <div class="faq-split-row">
+
+            <!-- LEFT: Sticky Label -->
+            <div class="faq-split-label">
+                <h2 class="faq-split-heading">FAQs</h2>
+                <p class="faq-split-sub">Everything you need to know about our AI appointment assistant.</p>
+                <a href="/contact" class="faq-split-contact">
+                    Still have questions? <span>Contact Support <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+
+            <!-- RIGHT: Accordion list -->
+            <div class="faq-split-list">
+
+                <!-- Item 1 — open by default -->
+                <div class="faq-split-item open">
+                    <button class="faq-split-q" type="button" onclick="toggleFaq(this)">
+                        <span>How does the AI assistant handle appointments?</span>
+                        <i class="fas fa-arrow-down faq-split-icon"></i>
+                    </button>
+                    <div class="faq-split-a">
+                        <p>When a customer calls, texts, or chats with your business, Booky responds instantly. It asks the right questions, checks your availability, books the appointment, and sends a confirmation — all automatically, 24/7.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="faq-split-item">
+                    <button class="faq-split-q" type="button" onclick="toggleFaq(this)">
+                        <span>What integrations do you support?</span>
+                        <i class="fas fa-arrow-down faq-split-icon"></i>
+                    </button>
+                    <div class="faq-split-a">
+                        <p>Booky syncs with Google Calendar so your schedule stays up to date. We also offer an API for custom integrations with your existing tools. More calendar integrations (Outlook and others) are coming soon.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="faq-split-item">
+                    <button class="faq-split-q" type="button" onclick="toggleFaq(this)">
+                        <span>Can I customize the AI's responses?</span>
+                        <i class="fas fa-arrow-down faq-split-icon"></i>
+                    </button>
+                    <div class="faq-split-a">
+                        <p>Absolutely! You can customize greetings, responses, business hours, service offerings, and even train the AI with industry-specific terminology. Professional and Enterprise plans offer advanced customization options.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="faq-split-item">
+                    <button class="faq-split-q" type="button" onclick="toggleFaq(this)">
+                        <span>Is my data secure?</span>
+                        <i class="fas fa-arrow-down faq-split-icon"></i>
+                    </button>
+                    <div class="faq-split-a">
+                        <p>Yes! We use bank-level encryption (AES-256) and follow GDPR regulations. Your data is stored securely and never shared with third parties.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="faq-split-item">
+                    <button class="faq-split-q" type="button" onclick="toggleFaq(this)">
+                        <span>What happens after the free trial?</span>
+                        <i class="fas fa-arrow-down faq-split-icon"></i>
+                    </button>
+                    <div class="faq-split-a">
+                        <p>After your 14-day free trial, you can choose a plan that fits your needs. If you don't select a plan, your account will simply pause—no charges, no commitments. You can upgrade anytime.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="faq-split-item">
+                    <button class="faq-split-q" type="button" onclick="toggleFaq(this)">
+                        <span>Do you offer customer support?</span>
+                        <i class="fas fa-arrow-down faq-split-icon"></i>
+                    </button>
+                    <div class="faq-split-a">
+                        <p>Yes! All plans include email support. Professional plans get priority support, and Enterprise customers receive dedicated account management with 24/7 phone support.</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- END right -->
+
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleFaq(btn) {
+    var item = btn.closest('.faq-split-item');
+    var isOpen = item.classList.contains('open');
+
+    // Close all items
+    document.querySelectorAll('.faq-split-item').forEach(function(el) {
+        el.classList.remove('open');
+    });
+
+    // If it was closed, open it
+    if (!isOpen) {
+        item.classList.add('open');
+    }
+}
+</script>

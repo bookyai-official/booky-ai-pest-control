@@ -1,0 +1,114 @@
+/* BOOKY AI — Features Grid Section */
+
+.ftgrid-section {
+    background: var(--bg-page);
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-3xl) 0;
+}
+
+
+.ftgrid-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.ftgrid-heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.ftgrid-sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ── Bento Grid ─────────────────────────────────────────── */
+.ftgrid-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* ── Card ───────────────────────────────────────────────── */
+.ftgrid-card {
+    padding: 28px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    transition: all var(--transition-base);
+}
+
+.ftgrid-card:hover {
+    background: var(--bg-card);
+    transform: translateY(-3px);
+}
+
+/* Wide card — spans 2 columns */
+.ftgrid-card--wide {
+    grid-column: span 2;
+}
+
+/* ── Label ──────────────────────────────────────────────── */
+.ftgrid-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--brand);
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* ── Title ──────────────────────────────────────────────── */
+.ftgrid-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+/* ── Description ────────────────────────────────────────── */
+.ftgrid-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .ftgrid-bento {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ftgrid-card--wide {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .ftgrid-heading {
+        font-size: 1.8rem;
+    }
+
+    .ftgrid-bento {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .ftgrid-card--wide {
+        grid-column: span 1;
+    }
+
+    .ftgrid-card {
+        padding: 22px 20px;
+    }
+}

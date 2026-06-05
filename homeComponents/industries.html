@@ -1,0 +1,92 @@
+{% load static %}
+<!-- Industries Section -->
+<section class="ind-section py-5 my-5" id="industries">
+    <div class="container">
+
+        <!-- Section Header -->
+        <div class="text-center mb-5">
+            <h2 class="section-title">
+                Built for <span class="gradient-text">Businesses Like Yours</span>
+            </h2>
+            <p class="section-subtitle">
+                From cleaning crews to HVAC techs, Booky handles your leads and books your jobs — so you never miss work again
+            </p>
+        </div>
+
+        <!-- Bento Reference Layout -->
+        <div class="bento-ref-grid">
+
+            <!-- Center Logo Overlay
+            <div class="bento-ref-logo d-none d-lg-flex">
+                <div class="glow-orb"></div>
+                <div class="logo-inner">
+                    <img src="{% static 'images/logo.png' %}" alt="">
+                </div>
+            </div> -->
+
+            <!-- Col 1: Left (Mirrored to Right) -->
+            <!-- 1. Cleaning -->
+            <div class="bento-ref-card card-small-left bg-gradient-brand-purple">
+                <h3 class="bento-ref-title mb-2">Cleaning</h3>
+                <img src="{% static 'images/industries/Cleaner.webp' %}" style="transform: scale(1.8); bottom: -50px; right: -100px;" alt="Cleaning" class="ind-card-img" loading="lazy">
+            </div>
+
+            <!-- 2. Roofing -->
+            <div class="bento-ref-card card-mid-left bg-gradient-brand-orange">
+                <h3 class="bento-ref-title mb-2">Roofing</h3>
+                <img src="{% static 'images/industries/Roofer.webp' %}" style="transform: scale(1.5); right: -50px;" alt="Roofing" class="ind-card-img" loading="lazy">
+            </div>
+
+            <!-- 3. Salons -->
+            <div class="bento-ref-card card-tall-left bg-gradient-brand-pink">
+                <h3 class="bento-ref-title mb-2">Salons</h3>
+                <img src="{% static 'images/industries/salon.webp' %}" alt="Salons" class="ind-card-img" loading="lazy">
+            </div>
+
+
+            <!-- Col 2 & 3: Center (UNTOUCHED) -->
+            <!-- CENTERPIECE -->
+            <div class="bento-ref-card card-huge-center bg-ref-purple text-center d-flex flex-column justify-content-center align-items-center shadow-0" style="z-index: 999;">
+                <img src="{% static 'images/logo.png' %}" alt="Booky AI Logo" class="w-25">
+                <h3 class="bento-ref-title text-white fw-bold" style="font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.15; letter-spacing: -0.03em;">
+                    Your AI Booking<br>Companion
+                </h3>
+              
+            </div>
+
+            <!-- 4. Plumbing -->
+            <div class="bento-ref-card card-tall-bot-left bg-gradient-brand-teal">
+                <h3 class="bento-ref-title mb-2">Plumbing</h3>
+                <img src="{% static 'images/industries/Plumber.webp' %}" style="transform: scale(1.5);" alt="Plumbing" class="ind-card-img" loading="lazy">
+            </div>
+
+            <!-- 5. Electricians -->
+            <div class="bento-ref-card card-tall-bot-right bg-gradient-brand-indigo">
+                <h3 class="bento-ref-title mb-2">Electricians</h3>
+                <img src="{% static 'images/industries/Electrician.webp' %}" style="transform: scale(2);" alt="Electricians" class="ind-card-img" loading="lazy">
+            </div>
+
+
+            <!-- Col 4: Right (Original Layout preserved for mirror reference) -->
+            <!-- 6. HVAC Techs -->
+            <div class="bento-ref-card card-small-right bg-gradient-brand-slate">
+                <h3 class="bento-ref-title mb-2">HVAC</h3>
+                <img src="{% static 'images/industries/hvac.webp' %}" style="transform: scale(1.5); right: 10px;" alt="HVAC" class="ind-card-img" loading="lazy">
+            </div>
+
+            <!-- 7. Consultants -->
+            <div class="bento-ref-card card-mid-right bg-gradient-brand-blue">
+                <h3 class="bento-ref-title mb-2">Consultants</h3>
+                <img src="{% static 'images/industries/Consultants.webp' %}" alt="Consultants" class="ind-card-img" loading="lazy">
+            </div>
+
+            <!-- 8. Trainer -->
+            <div class="bento-ref-card card-tall-right bg-gradient-brand-green">
+                <h3 class="bento-ref-title mb-2">Trainer</h3>
+                <img src="{% static 'images/industries/trainer.webp' %}" style="transform: scale(1.6); bottom: 50px;" alt="Trainer" class="ind-card-img" loading="lazy">
+            </div>
+
+        </div>
+
+    </div>
+</section>
