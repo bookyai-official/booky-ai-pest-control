@@ -4,10 +4,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = [
-        { role: 'user', content: 'Hey, do you have any openings for a boiler service this Friday?' },
+        { role: 'user', content: 'Hey, do you have any availability to inspect a wasp nest this Friday?' },
         { role: 'ai', content: 'Checking our schedule... Yes! We have availability at 9:00 AM and 2:30 PM. Would one of those work for you?' },
         { role: 'user', content: '9:00 AM works perfectly. How much will it cost?' },
-        { role: 'ai', content: 'Great! A standard boiler service is $85. I\'ve reserved the 9:00 AM slot for you. Shall I go ahead and confirm the booking?' },
+        { role: 'ai', content: 'Great! A standard inspection is $85. I\'ve reserved the 9:00 AM slot for you. Shall I go ahead and confirm the booking?' },
         { role: 'user', content: 'Yes please, confirm it.' },
         { role: 'ai', content: 'Done! ✅ Your booking for Friday at 9:00 AM is confirmed. You\'ll receive a confirmation email shortly. Anything else I can help with?' },
         { role: 'user', content: 'That\'s all, thank you!' }
